@@ -1,0 +1,50 @@
+
+<section class="about" id="about">
+    <div class="section-container">
+  
+      <h2 class="section-title">About Me</h2>
+  
+      <div class="about__intro">
+        <p class="about__description">
+          {{ introduction }}
+        </p>
+  
+        <div class="about__approach">
+          <h3>My Approach:</h3>
+          <p>{{ approach }}</p>
+        </div>
+      </div>
+
+
+      <h2 class="section-title">Education</h2><br>
+  
+      <div class="timeline">
+  
+        <div class="timeline__track" aria-hidden="true"></div>
+  
+        @for (item of timeline; track item.year; let i = $index) {
+          <article class="timeline__item">
+  
+            <h3 class="timeline__year">{{ item.year }}</h3>
+  
+            <span
+              class="timeline__marker"
+              [class.timeline__marker--red]="i === 0"
+              [class.timeline__marker--green]="i === 1"
+              [class.timeline__marker--yellow]="i === 2"
+              aria-hidden="true">
+            </span>
+  
+            <div class="timeline__details">
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.description }}</p>
+            </div>
+  
+          </article>
+        }
+  
+      </div>
+  
+    </div>
+  </section>
+  

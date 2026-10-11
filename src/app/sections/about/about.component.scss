@@ -1,0 +1,468 @@
+
+:host {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.about {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(64px, 6vw, 100px) clamp(24px, 5vw, 80px) 100px;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    180deg,
+    #cbdffd 0%,
+    #e9f2ff 75%,
+    #ffffff 100%
+  );
+}
+
+.about .section-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about .section-title {
+  width: 100%;
+  margin-inline: 0;
+  box-sizing: border-box;
+}
+
+/* About introduction */
+.about__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+
+  width: 100%;
+  margin: 24px 0 48px;
+  box-sizing: border-box;
+}
+
+.about__description,
+.about__approach p {
+  margin: 0;
+  font-size: clamp(17px, 1.35vw, 24px);
+  line-height: 1.55;
+}
+
+.about__approach h3 {
+  margin: 0 0 8px;
+  color: var(--color-blue, #0750b5);
+  font-size: clamp(18px, 1.5vw, 24px);
+  font-weight: 700;
+}
+
+/* Education timeline container */
+.timeline {
+  --timeline-line-color: #161616;
+  --timeline-marker-size: 21px;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+
+  width: 100%;
+  margin: 0;
+  padding: clamp(24px, 3vw, 40px);
+
+  border: 3px solid var(--color-blue, #0750b5);
+  border-radius: 5px;
+  background: rgba(195, 218, 250, 0.72);
+  box-sizing: border-box;
+}
+
+/* Horizontal line: centered through all square markers */
+.timeline__track {
+  position: absolute;
+  top: 114px;
+  left: 0;
+  right: 0;
+  height: 2px;
+
+  overflow: hidden;
+  background: rgba(22, 22, 22, 0.16);
+}
+
+/* Animated line starts collapsed */
+.timeline__track::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background: var(--timeline-line-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* Education item initial state */
+.timeline__item {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+/* Year */
+.timeline__year {
+  margin: 0;
+
+  font-family: var(--font-heading, sans-serif);
+  font-size: clamp(27px, 2.5vw, 38px);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Square marker */
+.timeline__marker {
+  position: relative;
+  z-index: 2;
+
+  flex-shrink: 0;
+  width: var(--timeline-marker-size);
+  height: var(--timeline-marker-size);
+  margin-top: 10px;
+
+  border: 1px solid #111;
+  border-radius: 2px;
+  box-sizing: border-box;
+
+  opacity: 0;
+  transform: scale(0.4);
+  box-shadow: 0 0 0 0 rgba(7, 80, 181, 0.3);
+}
+
+.timeline__marker--red {
+  background: #c51b43;
+}
+
+.timeline__marker--green {
+  background: #145e58;
+}
+
+.timeline__marker--yellow {
+  background: #ffca45;
+}
+
+/* Education details */
+.timeline__details {
+  width: 100%;
+  max-width: 420px;
+  padding-top: 24px;
+  box-sizing: border-box;
+}
+
+.timeline__details h4 {
+  margin: 0 0 16px;
+
+  font-family: var(--font-heading, sans-serif);
+  font-size: clamp(19px, 1.7vw, 28px);
+  font-weight: 600;
+}
+
+.timeline__details p {
+  margin: 0;
+  font-size: clamp(14px, 1.15vw, 18px);
+  line-height: 1.6;
+}
+
+/* =========================================
+   Scroll-triggered animations
+   Activated by .about--visible
+   ========================================= */
+
+/* Draw the horizontal timeline */
+.about--visible .timeline__track::after {
+  animation: education-line-horizontal 1.2s ease-out 0.15s forwards;
+}
+
+/* Reveal the education items in sequence */
+.about--visible .timeline__item {
+  animation: education-item-reveal 0.65s ease-out forwards;
+}
+
+.about--visible .timeline__item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.about--visible .timeline__item:nth-child(3) {
+  animation-delay: 1.05s;
+}
+
+.about--visible .timeline__item:nth-child(4) {
+  animation-delay: 1.8s;
+}
+
+/* Square markers pop in with each item */
+.about--visible .timeline__item:nth-child(2) .timeline__marker {
+  animation: education-marker-pop 0.45s ease-out 0.5s forwards;
+}
+
+.about--visible .timeline__item:nth-child(3) .timeline__marker {
+  animation: education-marker-pop 0.45s ease-out 1.25s forwards;
+}
+
+.about--visible .timeline__item:nth-child(4) .timeline__marker {
+  animation: education-marker-pop 0.45s ease-out 2s forwards;
+}
+
+@keyframes education-line-horizontal {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes education-line-vertical {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes education-item-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes education-marker-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+    box-shadow: 0 0 0 0 rgba(7, 80, 181, 0.3);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(7, 80, 181, 0.12);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(7, 80, 181, 0);
+  }
+}
+
+/* Wide PC screens */
+@media (min-width: 1001px) {
+  .about {
+    padding-inline: clamp(48px, 5vw, 96px);
+  }
+
+  .about__intro {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(48px, 6vw, 100px);
+    margin-bottom: 56px;
+  }
+
+  .timeline {
+    padding: 36px 40px;
+  }
+
+  /*
+   * Year line-height = 1.5 × 38px = 57px.
+   * Marker center = 36px padding + 57px + 10px margin + 10.5px.
+   * The track aligns with that center.
+   */
+  .timeline__track {
+    top: 113.5px;
+  }
+
+  .timeline__details {
+    max-width: 480px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 701px) and (max-width: 1000px) {
+  .about {
+    padding-inline: 28px;
+  }
+
+  .about__intro {
+    gap: 28px;
+  }
+
+  .timeline {
+    padding: 24px 16px;
+  }
+
+  /* Center line with the square markers */
+  .timeline__track {
+    top: 86px;
+  }
+
+  .timeline__details {
+    max-width: 260px;
+  }
+}
+
+/* Mobile: vertical education timeline */
+@media (max-width: 700px) {
+  .about {
+    padding: 48px 20px;
+    text-align: center;
+  }
+
+  .about .section-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about .section-title {
+    text-align: center;
+  }
+
+  .about__intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 24px;
+    margin: 20px 0 32px;
+    text-align: center;
+  }
+
+  .about__description,
+  .about__approach,
+  .about__approach p {
+    width: 100%;
+    max-width: 600px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .about__approach h3 {
+    text-align: center;
+  }
+
+  .timeline {
+    --timeline-marker-size: 21px;
+
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding: 24px 16px;
+    text-align: left;
+  }
+
+  /* Vertical line centered on the marker column */
+  .timeline__track {
+    top: 0;
+    bottom: 0;
+    left: 39px;
+    right: auto;
+
+    width: 2px;
+    height: auto;
+    transform: none;
+  }
+
+  .timeline__track::after {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  .about--visible .timeline__track::after {
+    animation: education-line-vertical 1.8s ease-out 0.15s forwards;
+  }
+
+  .timeline__item {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    align-items: start;
+    text-align: left;
+  }
+
+  .timeline__year {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 28px;
+    text-align: left;
+  }
+
+  .timeline__marker {
+    grid-column: 1;
+    grid-row: 1;
+
+    justify-self: center;
+    margin-top: 10px;
+  }
+
+  .timeline__details {
+    grid-column: 2;
+    grid-row: 2;
+
+    width: 100%;
+    max-width: none;
+    padding-top: 12px;
+    text-align: left;
+  }
+
+  .timeline__details h4 {
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .timeline__details p {
+    text-align: left;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .about {
+    padding-inline: 16px;
+  }
+
+  .timeline {
+    padding-inline: 12px;
+  }
+
+  .timeline__track {
+    left: 35px;
+  }
+}
+
+/* Reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .about--visible .timeline__track::after,
+  .about--visible .timeline__item,
+  .about--visible .timeline__marker {
+    animation: none !important;
+  }
+
+  .timeline__item {
+    opacity: 1;
+    transform: none;
+  }
+
+  .timeline__marker {
+    opacity: 1;
+    transform: none;
+  }
+
+  .timeline__track::after {
+    transform: scale(1);
+  }
+}

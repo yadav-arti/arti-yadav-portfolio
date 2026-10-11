@@ -1,0 +1,335 @@
+
+:host {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid rgba(7, 80, 181, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  
+  .navbar {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+  
+  .navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  
+    width: 100%;
+    max-width: none;
+    min-height: 76px;
+  
+    margin: 0;
+    padding-inline: clamp(24px, 4vw, 64px);
+    box-sizing: border-box;
+  }
+  
+  .navbar__brand {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    text-decoration: none;
+  }
+  
+  .navbar__logo {
+    display: block;
+    width: 100px;
+    height: 76px;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  /* Desktop navigation */
+  .navbar__links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(20px, 3vw, 42px);
+  
+    margin-left: auto;
+  }
+  
+  .navbar__link {
+    position: relative;
+    padding: 10px 0;
+  
+    color: var(--color-text, #111111);
+    font-family: var(--font-body, sans-serif);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+  
+    transition: color 200ms ease;
+  }
+  
+  .navbar__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+  
+    height: 2px;
+    background: var(--color-blue, #0750b5);
+  
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease;
+  }
+  
+  .navbar__link:hover,
+  .navbar__link--active {
+    color: var(--color-blue, #0750b5);
+  }
+  
+  .navbar__link:hover::after,
+  .navbar__link--active::after {
+    transform: scaleX(1);
+  }
+  
+  /* Resume button: positioned at the right end of the navbar */
+  .resume-button {
+    position: relative;
+    flex: 0 0 auto;
+  
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    min-height: 42px;
+    padding: 0 22px;
+  
+    color: #ffffff;
+    background: var(--color-blue, #0750b5);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    box-shadow: 0 5px 16px rgba(7, 80, 181, 0.25);
+  
+    font-family: var(--font-body, sans-serif);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      background 200ms ease;
+  }
+  
+  .resume-button:hover {
+    background: #063f91;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(7, 80, 181, 0.3);
+  }
+  
+  /* Hamburger: hidden on desktop */
+  .navbar__toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  /* Tablet */
+  @media (max-width: 900px) {
+    .navbar__inner {
+      padding-inline: 24px;
+      gap: 18px;
+    }
+  
+    .navbar__links {
+      gap: clamp(14px, 2.5vw, 24px);
+    }
+  
+    .resume-button {
+      padding-inline: 18px;
+    }
+  }
+  
+  
+/* Mobile hamburger navigation */
+@media (max-width: 600px) {
+    .navbar__inner {
+      min-height: 60px;
+      gap: 12px;
+      padding-inline: 16px;
+    }
+  
+    .navbar__logo {
+      width: 68px;
+      height: 56px;
+    }
+  
+    /* Resume stays visible in the navbar */
+    .resume-button {
+      min-height: 38px;
+      padding-inline: 14px;
+      margin-left: auto;
+      font-size: 13px;
+    }
+  
+    /* Hamburger button */
+    .navbar__toggle {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+  
+      position: relative;
+      z-index: 2;
+  
+      width: 38px;
+      height: 38px;
+      padding: 7px;
+      border-radius: 8px;
+    }
+  
+    .navbar__toggle:hover {
+      background: rgba(7, 80, 181, 0.08);
+    }
+  
+    .navbar__toggle span {
+      display: block;
+      width: 23px;
+      height: 2px;
+  
+      background: #111111;
+      border-radius: 2px;
+  
+      transition:
+        transform 200ms ease,
+        opacity 200ms ease;
+    }
+  
+    /* Hamburger transforms into an X */
+    .navbar__toggle--open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+  
+    .navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  
+    /* Dropdown menu */
+    .navbar__links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+  
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+  
+      margin-left: 0;
+      padding: 8px 16px 16px;
+  
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid rgba(7, 80, 181, 0.12);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+  
+      transition:
+        opacity 200ms ease,
+        transform 200ms ease,
+        visibility 200ms ease;
+    }
+  
+    .navbar__links--open {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  
+    /* Center navigation text */
+    .navbar__link {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 14px 8px;
+      box-sizing: border-box;
+  
+      font-size: 15px;
+      text-align: center;
+    }
+  
+    /* Center underline beneath each link */
+    .navbar__link::after {
+      left: 50%;
+      right: auto;
+      bottom: 5px;
+  
+      width: 36px;
+  
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+    }
+  
+    .navbar__link:hover::after,
+    .navbar__link--active::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+  
+  /* Very small phones */
+  @media (max-width: 380px) {
+    .navbar__inner {
+      gap: 8px;
+      padding-inline: 10px;
+    }
+  
+    .navbar__logo {
+      width: 58px;
+    }
+  
+    .resume-button {
+      padding-inline: 11px;
+      font-size: 12px;
+    }
+  
+    .navbar__toggle {
+      width: 34px;
+      height: 38px;
+    }
+  }
+  
+  
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .navbar__link,
+    .navbar__link::after,
+    .navbar__toggle span,
+    .navbar__links,
+    .resume-button {
+      transition: none;
+    }
+  }
+  

@@ -1,0 +1,48 @@
+
+<section class="hero" id="home">
+  <div class="hero__inner">
+
+    <!-- Navbar -->
+    <header class="hero__header">
+      <app-navbar></app-navbar>
+    </header>
+
+    <!-- Hero content -->
+    <div class="hero__content">
+      <div class="hero__copy">
+
+        <div class="hero__signature">
+          <span class="hero__signature-black">Arti</span>
+          <span class="hero__signature-blue">Yadav</span>
+        </div>
+
+        <div class="hero__portfolio">
+          <span class="hero__word hero__word--top">
+            P<span class="hero__blue-o">O</span>RTF<span class="hero__blue-o">O</span>LI<span class="hero__blue-o">O</span>
+          </span>
+
+        </div>
+
+        <h1 class="hero__profession" aria-label="Creative Designer">
+          <span class="typing-text">{{ displayedText }}</span><span
+            class="typing-cursor"
+            aria-hidden="true"
+          ></span>
+        </h1>
+
+        <p class="hero__tagline">
+          {{ tagline }}
+        </p>
+      </div>
+
+      <div class="hero__portrait" appImageGlow="#008cff">
+        <img
+          [src]="portrait"
+          [alt]="name + ', creative designer'"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<header class="navbar">
+    <div class="navbar__inner">
+
+        <a class="navbar__brand" href="#home" aria-label="Go to Home" (click)="closeMenu()">
+            <img class="navbar__logo" [src]="logo" alt="Portfolio logo" />
+        </a>
+
+        <nav id="primary-navigation" class="navbar__links" [class.navbar__links--open]="menuOpen"
+            aria-label="Main navigation">
+
+            @for (item of navItems; track item.href) {
+            <a class="navbar__link" [href]="item.href" [class.navbar__link--active]="activeLink === item.href"
+                (click)="selectLink(item.href)">
+                {{ item.label }}
+            </a>
+            }
+
+        </nav>
+
+        <!-- Resume stays at the far right -->
+        <a class="resume-button" [href]="resumeUrl" target="_blank" rel="noopener noreferrer">
+            Resume
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button class="navbar__toggle" type="button" [class.navbar__toggle--open]="menuOpen"
+            [attr.aria-expanded]="menuOpen" aria-controls="primary-navigation"
+            [attr.aria-label]="menuOpen ? 'Close navigation menu' : 'Open navigation menu'" (click)="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+</header>

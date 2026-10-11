@@ -1,0 +1,583 @@
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f7faff 40%,
+    #d7e7ff 100%
+  );
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0 clamp(24px, 5vw, 80px);
+  box-sizing: border-box;
+}
+
+/* Navbar host */
+.hero__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main hero layout */
+.hero__content {
+  position: relative;
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: end;
+  gap: clamp(20px, 3vw, 48px);
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  min-width: 0;
+  padding: 0 0 clamp(30px, 5vh, 64px);
+}
+
+/* Portfolio title */
+.hero__portfolio {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  font-family: var(--font-heading, Impact, sans-serif);
+  font-size: clamp(125px, 17vw, 250px);
+  font-weight: 700;
+  line-height: 0.76;
+}
+
+.hero__word {
+  display: block;
+  white-space: nowrap;
+  opacity: 0;
+  animation: portfolioReveal 900ms
+    cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.hero__word--top {
+  animation-delay: 200ms;
+}
+
+.hero__word--bottom {
+  animation-delay: 450ms;
+}
+
+.hero__blue-o {
+  color: var(--color-blue, #0750b5);
+}
+
+.hero__year {
+  position: absolute;
+  top: 15%;
+  right: -0.5em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: clamp(28px, 3vw, 44px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  opacity: 0;
+  animation: yearReveal 700ms ease-out 700ms forwards;
+}
+
+/* Typing profession */
+.hero__profession {
+  min-height: 1.2em;
+  margin: clamp(14px, 2vh, 24px) 0 4px;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(44px, 6vw, 86px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.hero__profession span {
+  color: var(--color-blue, #0750b5);
+}
+
+.typing-text {
+  background: linear-gradient(
+    90deg,
+    #111111 0%,
+    #111111 48%,
+    #0750b5 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  margin-left: 5px;
+  vertical-align: -0.04em;
+  background: var(--color-blue, #0750b5);
+  animation: cursorBlink 750ms step-end infinite;
+}
+
+.hero__tagline {
+  max-width: 44rem;
+  margin: 10px 0 0 6px;
+  font-size: clamp(16px, 1.5vw, 23px);
+  line-height: 1.5;
+}
+
+/* Portrait */
+.hero__portrait {
+  position: relative;
+  isolation: isolate;
+  align-self: end;
+  justify-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: min(78svh, 800px);
+  min-height: 0;
+  overflow: visible;
+  --image-glow-color: #008cff;
+}
+
+.hero__portrait img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: none;
+  animation: none;
+}
+
+/* Animated glow behind the stationary image */
+.hero__portrait::before {
+  position: absolute;
+  z-index: 0;
+  inset: 12% 5% 5%;
+  border-radius: 50%;
+  background: var(--image-glow-color);
+  content: '';
+  opacity: 0.8;
+  filter: blur(48px);
+  pointer-events: none;
+  animation: neonGlowFloat 3s ease-in-out infinite;
+  will-change: transform, opacity, filter;
+}
+
+.hero__portrait.is-glowing::before {
+  opacity: 1;
+  filter: blur(70px);
+}
+
+/* Animations */
+@keyframes portfolioReveal {
+  from {
+    opacity: 0;
+    transform: translateY(45px) scale(0.96);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes yearReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) rotate(180deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(180deg);
+  }
+}
+
+@keyframes cursorBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes neonGlowFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(0.85);
+    opacity: 0.55;
+    filter: blur(42px);
+  }
+
+  50% {
+    transform: translateY(-16px) scale(1.12);
+    opacity: 1;
+    filter: blur(68px);
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) and (min-width: 601px) {
+  .hero__inner {
+    padding-inline: 28px;
+  }
+
+  .hero__content {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    gap: 14px;
+  }
+
+  .hero__copy {
+    padding-bottom: 24px;
+  }
+
+  .hero__portfolio {
+    font-size: clamp(94px, 13vw, 140px);
+  }
+
+  .hero__profession {
+    font-size: clamp(34px, 5vw, 52px);
+    white-space: normal;
+  }
+
+  .hero__portrait {
+    height: min(65svh, 620px);
+  }
+}
+
+
+/* Mobile: center all hero content and remove extra bottom space */
+@media (max-width: 600px) {
+  .hero {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 40px 0 0;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0 20px 0;
+    box-sizing: border-box;
+  }
+
+  .hero__content {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: clamp(24px, 4vh, 40px) 0 0;
+    box-sizing: border-box;
+  }
+
+  .hero__copy {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  /* Cursive name */
+  .hero__signature {
+    position: relative;
+    align-self: center;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.15em;
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 0;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(42px, 10vw, 58px);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .hero__signature-black {
+    color: #111111;
+  }
+
+  .hero__signature-blue {
+    color: #0750b5;
+  }
+
+  /* Center the Portfolio title */
+  .hero__portfolio {
+    position: relative;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: clamp(76px, 19vw, 112px);
+    line-height: 0.8;
+    text-align: center;
+  }
+
+  .hero__word {
+    display: block;
+    text-align: center;
+  }
+
+  .hero__year {
+    right: -0.5em;
+    font-size: clamp(19px, 5.5vw, 23px);
+  }
+
+  /* Typing animation */
+  .hero__profession {
+    align-self: center;
+    width: 100%;
+    min-height: 1.2em;
+    margin: 14px 0 0;
+    font-size: clamp(31px, 8.5vw, 46px);
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .typing-text {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .hero__tagline {
+    align-self: center;
+    width: 100%;
+    max-width: 44rem;
+    margin: 8px 0 0;
+    font-size: clamp(12px, 3.5vw, 15px);
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  /* Portrait and neon glow */
+  .hero__portrait {
+    position: relative;
+    align-self: center;
+    flex: 0 0 auto;
+    width: min(100%, 370px);
+    height: clamp(220px, 36svh, 320px);
+    min-height: 0;
+    max-height: none;
+    margin: 12px auto 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .hero__portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .hero {
+    padding-top: 40px;
+  }
+
+  .hero__inner {
+    padding: 0 16px;
+  }
+
+  .hero__content {
+    padding-top: 24px;
+  }
+
+  .hero__signature {
+    margin-bottom: 10px;
+    font-size: clamp(36px, 9vw, 44px);
+  }
+
+  .hero__portfolio {
+    font-size: clamp(70px, 18.5vw, 82px);
+  }
+
+  .hero__profession {
+    margin-top: 12px;
+    font-size: clamp(29px, 8vw, 33px);
+  }
+
+  .hero__portrait {
+    width: min(100%, 320px);
+    height: 260px;
+    min-height: 0;
+    margin-top: 10px;
+  }
+}
+
+
+/* Short desktop/laptop screens */
+@media (max-height: 700px) and (min-width: 601px) {
+
+  .hero__portfolio {
+    font-size: clamp(100px, 12vw, 160px);
+  }
+
+  .hero__copy {
+    padding-bottom: 16px;
+  }
+
+  .hero__portrait {
+    height: 68svh;
+  }
+
+  .hero__profession {
+    margin-top: 12px;
+    font-size: clamp(34px, 4.4vw, 56px);
+  }
+}
+
+.hero__signature {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: baseline;
+  gap: 0.18em;
+  width: fit-content;
+  margin: 0 0 14px 4px;
+
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(58px, 7vw, 100px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.hero__signature-black {
+  color: #111111;
+}
+
+.hero__signature-blue {
+  color: #0750b5;
+}
+
+
+/* =========================================
+   LAPTOP / DESKTOP: VERTICALLY CENTER HERO
+   ========================================= */
+
+   @media (min-width: 901px) {
+    .hero__inner {
+      min-height: 100svh;
+      height: 100svh;
+      padding-top: 78px; /* Space reserved for fixed navbar */
+      padding-bottom: 0;
+      box-sizing: border-box;
+    }
+  
+    .hero__content {
+      flex: 1 1 auto;
+      min-height: 0;
+      align-items: center;
+      align-content: center;
+    }
+  
+    .hero__copy {
+      align-self: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      transform: translateY(-12px);
+    }
+  
+    .hero__portrait {
+      align-self: center;
+      height: min(100svh, 900px);
+      min-height: 0;
+    }
+  
+    .hero__signature {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+  }
+  
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero__word,
+  .hero__year {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .typing-cursor {
+    animation: none;
+  }
+
+  .hero__portrait::before {
+    animation: none;
+    transform: none;
+    opacity: 0.7;
+  }
+}
