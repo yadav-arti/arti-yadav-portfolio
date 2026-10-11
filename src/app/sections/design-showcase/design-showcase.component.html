@@ -1,0 +1,101 @@
+
+<section class="design-showcase" aria-label="Creative design portfolio">
+
+    <!-- Decorative artwork at the top -->
+    <div class="artwork-layer top-artworks" aria-hidden="true">
+      <div
+        *ngFor="let artwork of floatingArtworks"
+        class="floating-artwork"
+        [ngClass]="artwork.position"
+        [style.--rotation]="artwork.rotation + 'deg'"
+      >
+        <img
+          [src]="artwork.src"
+          [alt]="artwork.alt"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  
+    <!-- Main typography with images masked inside the letters -->
+    <div class="design-title-wrap">
+      <svg
+        class="design-title"
+        viewBox="0 0 1500 330"
+        preserveAspectRatio="xMidYMid meet"
+        role="img"
+        aria-label="Designs"
+      >
+        <defs>
+          <mask
+            id="designTextMask"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="1500"
+            height="330"
+          >
+            <rect
+              x="0"
+              y="0"
+              width="1500"
+              height="330"
+              fill="black"
+            />
+  
+            <text
+              x="750"
+              y="260"
+              text-anchor="middle"
+              font-family="Georgia, 'Times New Roman', serif"
+              font-size="280"
+              font-weight="900"
+              letter-spacing="-12"
+              fill="white"
+            >
+              DESIGNS
+            </text>
+          </mask>
+        </defs>
+  
+        <!-- Artwork is visible only through the text mask -->
+        <g mask="url(#designTextMask)">
+          <rect
+            x="0"
+            y="0"
+            width="1500"
+            height="330"
+            fill="#0750b5"
+          />
+  
+          <image
+            *ngFor="let artwork of letterArtworks"
+            [attr.href]="artwork.src"
+            [attr.x]="artwork.x"
+            y="0"
+            [attr.width]="artwork.width"
+            height="330"
+            preserveAspectRatio="xMidYMid slice"
+          />
+        </g>
+      </svg>
+    </div>
+  
+    <!-- Decorative artwork at the bottom -->
+    <div class="artwork-layer bottom-artworks" aria-hidden="true">
+      <div
+        *ngFor="let artwork of floatingArtworks"
+        class="floating-artwork"
+        [ngClass]="artwork.position"
+        [style.--rotation]="artwork.rotation + 'deg'"
+      >
+        <img
+          [src]="artwork.src"
+          [alt]="artwork.alt"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  
+  </section>
+  
