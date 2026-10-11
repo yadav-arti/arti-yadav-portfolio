@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HeroComponent } from './sections/hero/hero.component';
 import { AboutComponent } from './sections/about/about.component';
 import { ExperienceComponent } from './sections/experience/experience.component';
+import { FooterComponent } from './sections/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { ExperienceComponent } from './sections/experience/experience.component'
   imports: [
     HeroComponent,
     AboutComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
