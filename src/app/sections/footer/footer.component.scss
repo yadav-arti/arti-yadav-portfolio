@@ -15,7 +15,6 @@
     padding: 24px 0 0;
     overflow: hidden;
     color: var(--color-text);
-    font-family: var(--font-body);
     background: linear-gradient(
       180deg,
       #cbdffd 0%,
@@ -48,7 +47,6 @@
     display: block;
     margin-bottom: 12px;
     color: var(--color-blue);
-    font-family: var(--font-heading);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -59,7 +57,7 @@
     max-width: 750px;
     margin: 0 0 16px;
     color: var(--color-black);
-    font-family: var(--font-display);
+    font-family: Georgia, 'Times New Roman', serif
     font-size: clamp(28px, 4vw, 48px);
     font-weight: 500;
     line-height: 1.2;
