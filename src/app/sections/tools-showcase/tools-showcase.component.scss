@@ -1,0 +1,691 @@
+
+:host {
+    display: block;
+    width: 100%;
+  }
+  
+  .tools-showcase {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    overflow: hidden;
+    color: var(--color-black, #111);
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #edf4ff 45%,
+      #d5e5ff 100%
+    );
+  }
+  
+  .tools-showcase__inner {
+    position: relative;
+    width: 100%;
+    max-width: var(--content-max-width, 1440px);
+    min-height: clamp(570px, 65vw, 780px);
+    margin-inline: auto;
+    padding: 40px var(--page-padding, 5vw);
+    box-sizing: border-box;
+  }
+  
+  /* =========================================
+     BACKGROUND AMBIENT GLOW
+  ========================================= */
+  
+  .tools-showcase__ambient {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: clamp(250px, 42vw, 570px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #1685ff;
+    opacity: 0.2;
+    filter: blur(85px);
+    transform: translate(-50%, -50%);
+    animation: toolsAmbientGlow 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  /* =========================================
+     CENTER TITLE
+  ========================================= */
+  
+  .tools-showcase__center {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+  
+  .tools-showcase__eyebrow {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-blue, #0750b5);
+    font-family: var(--font-heading, sans-serif);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    animation: toolsTextReveal 800ms ease-out both;
+  }
+  
+  .tools-showcase__title {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    color: var(--color-black, #111);
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(80px, 13vw, 170px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.075em;
+    animation: toolsTitleReveal 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  
+  .tools-showcase__title::before {
+    position: absolute;
+    z-index: -1;
+    inset: 15% -15%;
+    border-radius: 50%;
+    background: var(--color-blue, #0750b5);
+    content: '';
+    opacity: 0.25;
+    filter: blur(38px);
+    animation: toolsTitleGlow 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  .tools-showcase__title > span {
+    color: var(--color-blue, #0750b5);
+  }
+  
+  .tools-showcase__description {
+    margin: 18px 0 0;
+    color: #43536b;
+    font-family: var(--font-body, sans-serif);
+    font-size: clamp(13px, 1.5vw, 17px);
+    letter-spacing: 0.4px;
+    animation: toolsTextReveal 900ms ease-out 250ms both;
+  }
+  
+  /* =========================================
+     LOGO ORBIT
+     Logos start from the center of "Tools".
+  ========================================= */
+  
+  .tools-showcase__orbit {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+  
+  .tool-orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  
+    opacity: 0;
+    visibility: hidden;
+  
+    transform: translate(-50%, -50%) scale(0.08) rotate(-25deg);
+    transform-origin: center;
+  
+    --float-x: 10px;
+    --float-y: 14px;
+    --float-duration: 3.8s;
+    --rotate-angle: 4deg;
+  
+    pointer-events: auto;
+    will-change: top, left, transform, opacity;
+  }
+  
+  /* Entrance starts when Angular adds .is-visible */
+  .tools-showcase.is-visible .tool-orbit-item {
+    visibility: visible;
+  
+    animation:
+      toolLogoLaunch 950ms cubic-bezier(0.16, 1, 0.3, 1)
+        var(--delay, 0ms) both,
+      toolLogoFloat var(--float-duration)
+        ease-in-out
+        calc(var(--delay, 0ms) + 950ms + var(--float-delay, 0s))
+        infinite;
+  }
+  
+  /* Unique floating patterns for each logo */
+  .tool-orbit-item:nth-child(1) {
+    --float-x: -10px;
+    --float-y: 15px;
+    --float-duration: 3.7s;
+    --rotate-angle: -5deg;
+  }
+  
+  .tool-orbit-item:nth-child(2) {
+    --float-x: 12px;
+    --float-y: -13px;
+    --float-duration: 4.4s;
+    --rotate-angle: 4deg;
+  }
+  
+  .tool-orbit-item:nth-child(3) {
+    --float-x: -8px;
+    --float-y: 18px;
+    --float-duration: 3.3s;
+    --rotate-angle: -3deg;
+  }
+  
+  .tool-orbit-item:nth-child(4) {
+    --float-x: 13px;
+    --float-y: -10px;
+    --float-duration: 4.8s;
+    --rotate-angle: 5deg;
+  }
+  
+  .tool-orbit-item:nth-child(5) {
+    --float-x: -12px;
+    --float-y: 12px;
+    --float-duration: 3.5s;
+    --rotate-angle: -4deg;
+  }
+  
+  .tool-orbit-item:nth-child(6) {
+    --float-x: 9px;
+    --float-y: -17px;
+    --float-duration: 4.2s;
+    --rotate-angle: 3deg;
+  }
+  
+  .tool-orbit-item:nth-child(7) {
+    --float-x: -11px;
+    --float-y: 14px;
+    --float-duration: 3.9s;
+    --rotate-angle: -5deg;
+  }
+  
+  .tool-orbit-item:nth-child(8) {
+    --float-x: 12px;
+    --float-y: -15px;
+    --float-duration: 4.6s;
+    --rotate-angle: 4deg;
+  }
+  
+  .tool-orbit-item:nth-child(9) {
+    --float-x: -9px;
+    --float-y: 11px;
+    --float-duration: 3.4s;
+    --rotate-angle: -3deg;
+  }
+  
+  .tool-orbit-item:nth-child(10) {
+    --float-x: 14px;
+    --float-y: -12px;
+    --float-duration: 4.1s;
+    --rotate-angle: 5deg;
+  }
+  
+  .tool-orbit-item:nth-child(11) {
+    --float-x: -13px;
+    --float-y: 16px;
+    --float-duration: 3.6s;
+    --rotate-angle: -4deg;
+  }
+  
+  /* Fly outward from the center to each target */
+  @keyframes toolLogoLaunch {
+    0% {
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.08) rotate(-25deg);
+    }
+  
+    65% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.14) rotate(7deg);
+    }
+  
+    82% {
+      transform: translate(-50%, -50%) scale(0.94) rotate(-3deg);
+    }
+  
+    100% {
+      top: var(--target-y, var(--y));
+      left: var(--target-x, var(--x));
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+  }
+  
+  /* Gentle floating after arrival */
+  @keyframes toolLogoFloat {
+    0%,
+    100% {
+      translate: 0 0;
+      rotate: 0deg;
+    }
+  
+    25% {
+      translate: var(--float-x) calc(var(--float-y) * -0.45);
+      rotate: var(--rotate-angle);
+    }
+  
+    50% {
+      translate: calc(var(--float-x) * -0.5) calc(var(--float-y) * -1);
+      rotate: calc(var(--rotate-angle) * -0.6);
+    }
+  
+    75% {
+      translate: calc(var(--float-x) * -0.8) var(--float-y);
+      rotate: calc(var(--rotate-angle) * 0.5);
+    }
+  }
+  
+  /* =========================================
+     LOGO BADGES AND IMAGES
+  ========================================= */
+  
+  .tool-icon {
+    position: relative;
+    display: grid;
+    width: clamp(50px, 6vw, 76px);
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    background: var(--tool-background, rgba(255, 255, 255, 0.9));
+    color: var(--tool-color, #0750b5);
+    box-shadow:
+      0 10px 28px rgba(7, 80, 181, 0.13),
+      0 0 18px rgba(7, 80, 181, 0.12);
+    transition:
+      box-shadow 250ms ease,
+      border-radius 250ms ease;
+  }
+  
+  .tool-icon__image {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 58%;
+    height: 58%;
+    object-fit: contain;
+    filter: none;
+  }
+  
+  .tool-icon__symbol {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-heading, sans-serif);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1;
+  }
+  
+  /* Neon around every badge */
+  .tool-icon__glow {
+    position: absolute;
+    z-index: -1;
+    inset: -7px;
+    border-radius: 22px;
+    background: #1685ff;
+    opacity: 0.25;
+    filter: blur(15px);
+    animation: toolIconNeon 3s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+    pointer-events: none;
+  }
+  
+  .tools-showcase.is-visible .tool-icon__glow {
+    animation: toolIconNeon 3s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+  }
+  
+  .tool-orbit-item:hover {
+    z-index: 10;
+  }
+  
+  .tool-orbit-item:hover .tool-icon {
+    border-radius: 50%;
+    box-shadow:
+      0 12px 32px rgba(7, 80, 181, 0.2),
+      0 0 28px rgba(7, 80, 181, 0.35);
+  }
+  
+  /* Brand-inspired shapes */
+  .tool-icon--figma {
+    border-radius: 15px;
+  }
+  
+  .tool-icon--photoshop,
+  .tool-icon--illustrator {
+    border-radius: 9px;
+  }
+  
+  .tool-icon--canva {
+    border-radius: 50%;
+  }
+  
+  .tool-icon--wordpress {
+    border: 3px solid #21759b;
+    border-radius: 50%;
+  }
+  
+  .tool-icon--wordpress .tool-icon__symbol {
+    font-family: Georgia, serif;
+    font-weight: 400;
+  }
+  
+  .tool-icon--html,
+  .tool-icon--css {
+    border-radius: 12px;
+  }
+  
+  .tool-icon--gemini .tool-icon__symbol {
+    background: linear-gradient(135deg, #4285f4, #a142f4, #0f9d58);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .tool-icon--chatgpt,
+  .tool-icon--claude {
+    border-radius: 50%;
+  }
+  
+  .tool-icon--coreldraw {
+    border-radius: 50% 50% 16px 50%;
+  }
+  
+  /* =========================================
+     TOOLTIP
+  ========================================= */
+  
+  .tool-tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    padding: 6px 10px;
+    border: 1px solid rgba(7, 80, 181, 0.12);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--color-blue, #0750b5);
+    font-family: var(--font-body, sans-serif);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -4px);
+    transition:
+      opacity 200ms ease,
+      transform 200ms ease,
+      visibility 200ms ease;
+    box-shadow: 0 5px 15px rgba(7, 80, 181, 0.08);
+  }
+  
+  .tool-orbit-item:hover .tool-tooltip,
+  .tool-orbit-item:focus-within .tool-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+  }
+  
+  /* =========================================
+     GLOW ANIMATIONS
+  ========================================= */
+  
+  @keyframes toolIconNeon {
+    0%,
+    100% {
+      opacity: 0.2;
+      filter: blur(12px);
+    }
+  
+    50% {
+      opacity: 0.7;
+      filter: blur(22px);
+    }
+  }
+  
+  @keyframes toolsTitleGlow {
+    0%,
+    100% {
+      opacity: 0.18;
+      transform: scale(0.85);
+    }
+  
+    50% {
+      opacity: 0.45;
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes toolsAmbientGlow {
+    0%,
+    100% {
+      opacity: 0.15;
+      scale: 0.9;
+    }
+  
+    50% {
+      opacity: 0.3;
+      scale: 1.1;
+    }
+  }
+  
+  @keyframes toolsTitleReveal {
+    from {
+      opacity: 0;
+      filter: blur(12px);
+      transform: translateY(20px);
+    }
+  
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes toolsTextReveal {
+    from {
+      opacity: 0;
+      translate: 0 10px;
+    }
+  
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+  
+  /* =========================================
+     TABLET
+  ========================================= */
+  
+  @media (max-width: 900px) {
+    .tools-showcase__inner {
+      min-height: 600px;
+    }
+  
+    .tools-showcase__center {
+      width: 75%;
+    }
+  
+    .tool-icon {
+      width: 56px;
+    }
+  
+    .tool-orbit-item:nth-child(1) {
+      --target-x: 16%;
+    }
+  
+    .tool-orbit-item:nth-child(4) {
+      --target-x: 85%;
+    }
+  
+    .tool-orbit-item:nth-child(5) {
+      --target-x: 7%;
+    }
+  
+    .tool-orbit-item:nth-child(6) {
+      --target-x: 93%;
+    }
+  
+    .tool-orbit-item:nth-child(9) {
+      --target-x: 23%;
+    }
+  
+    .tool-orbit-item:nth-child(11) {
+      --target-x: 78%;
+    }
+  }
+  
+  /* =========================================
+     MOBILE
+  ========================================= */
+  
+  @media (max-width: 600px) {
+    .tools-showcase__inner {
+      min-height: 530px;
+      padding: 24px 12px;
+    }
+  
+    .tools-showcase__center {
+      width: 82%;
+    }
+  
+    .tools-showcase__title {
+      font-size: clamp(68px, 18vw, 100px);
+    }
+  
+    .tools-showcase__eyebrow {
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+  
+    .tools-showcase__description {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+  
+    .tool-icon {
+      width: 42px;
+      border-radius: 12px;
+    }
+  
+    .tool-icon__symbol {
+      font-size: 23px;
+    }
+  
+    .tool-icon__glow {
+      inset: -4px;
+      filter: blur(10px);
+    }
+  
+    .tool-orbit-item {
+      gap: 5px;
+    }
+  
+    /* Mobile positions: keep all 11 logos around the title */
+    .tool-orbit-item:nth-child(1) {
+      --target-x: 17%;
+      --target-y: 20%;
+    }
+  
+    .tool-orbit-item:nth-child(2) {
+      --target-x: 40%;
+      --target-y: 11%;
+    }
+  
+    .tool-orbit-item:nth-child(3) {
+      --target-x: 67%;
+      --target-y: 14%;
+    }
+  
+    .tool-orbit-item:nth-child(4) {
+      --target-x: 85%;
+      --target-y: 28%;
+    }
+  
+    .tool-orbit-item:nth-child(5) {
+      --target-x: 8%;
+      --target-y: 42%;
+    }
+  
+    .tool-orbit-item:nth-child(6) {
+      --target-x: 91%;
+      --target-y: 51%;
+    }
+  
+    .tool-orbit-item:nth-child(7) {
+      --target-x: 11%;
+      --target-y: 66%;
+    }
+  
+    .tool-orbit-item:nth-child(8) {
+      --target-x: 88%;
+      --target-y: 72%;
+    }
+  
+    .tool-orbit-item:nth-child(9) {
+      --target-x: 24%;
+      --target-y: 86%;
+    }
+  
+    .tool-orbit-item:nth-child(10) {
+      --target-x: 50%;
+      --target-y: 91%;
+    }
+  
+    .tool-orbit-item:nth-child(11) {
+      --target-x: 76%;
+      --target-y: 86%;
+    }
+  
+    .tool-tooltip {
+      display: none;
+    }
+  }
+  
+  /* =========================================
+     ACCESSIBILITY
+  ========================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .tools-showcase__ambient,
+    .tools-showcase__title,
+    .tools-showcase__eyebrow,
+    .tools-showcase__description,
+    .tool-icon__glow {
+      animation: none !important;
+    }
+  
+    .tool-orbit-item,
+    .tools-showcase.is-visible .tool-orbit-item {
+      animation: none !important;
+      top: var(--target-y, var(--y));
+      left: var(--target-x, var(--x));
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%);
+      translate: none;
+      rotate: none;
+      will-change: auto;
+    }
+  
+    .tool-icon {
+      transition: none;
+    }
+  }
+  

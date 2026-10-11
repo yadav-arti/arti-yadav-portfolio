@@ -1,0 +1,79 @@
+
+<section
+  class="tools-showcase"
+  id="tools"
+  aria-labelledby="tools-heading"
+>
+  <div class="tools-showcase__inner">
+
+    <!-- Ambient neon background -->
+    <div
+      class="tools-showcase__ambient"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Central glowing heading -->
+    <div class="tools-showcase__center">
+      <span class="tools-showcase__eyebrow">
+        MY CREATIVE TOOLKIT
+      </span>
+
+      <h2
+        id="tools-heading"
+        class="tools-showcase__title"
+      >
+        Tools<span>.</span>
+      </h2>
+
+      <p class="tools-showcase__description">
+        Creativity meets technology.
+      </p>
+    </div>
+
+    <!-- Floating tool icons -->
+    <div
+      class="tools-showcase__orbit"
+      aria-label="Design and AI tools"
+    >
+      <div
+        *ngFor="let tool of tools; trackBy: trackByToolId"
+        class="tool-orbit-item"
+        [style.--x]="tool.x"
+        [style.--y]="tool.y"
+        [style.--delay]="tool.delay + 'ms'"
+        [style.--float-delay]="-(tool.delay / 1000) + 's'"
+        [attr.aria-label]="tool.name"
+      >
+        <!-- Tool logo badge -->
+        <div
+          class="tool-icon"
+          [ngClass]="'tool-icon--' + tool.id"
+          role="img"
+          [attr.aria-label]="tool.name"
+          [title]="tool.name"
+        >
+          <!-- Neon glow -->
+          <span
+            class="tool-icon__glow"
+            aria-hidden="true"
+          ></span>
+
+          <!-- Original tool logo -->
+          <img
+            class="tool-icon__image"
+            [src]="tool.iconUrl"
+            [alt]="tool.name"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <!-- Tooltip -->
+        <span class="tool-tooltip" aria-hidden="true">
+          {{ tool.name }}
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
