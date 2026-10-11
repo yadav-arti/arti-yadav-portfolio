@@ -70,7 +70,7 @@
   
           <image
             *ngFor="let artwork of letterArtworks"
-            [attr.href]="artwork.src"
+            [attr.href]="isVisible ? artwork.src : null"
             [attr.x]="artwork.x"
             y="0"
             [attr.width]="artwork.width"
