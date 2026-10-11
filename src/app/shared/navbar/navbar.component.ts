@@ -14,7 +14,8 @@ export class NavbarComponent {
   readonly navItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' }
+    { label: 'Experience', href: '#experience' },
+    { label: 'Designs', href: '#designs' }
   ];
 
   readonly resumeUrl = '/portfolio-assets/resume/arti-yadav-resume.pdf';
