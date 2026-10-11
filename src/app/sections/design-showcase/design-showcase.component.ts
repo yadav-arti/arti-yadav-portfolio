@@ -1,6 +1,10 @@
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  AfterViewInit,
+  ElementRef,
+  OnDestroy
+} from '@angular/core';
 
 interface DesignArtwork {
   src: string;
@@ -23,7 +27,44 @@ interface FloatingArtwork {
   templateUrl: './design-showcase.component.html',
   styleUrl: './design-showcase.component.scss'
 })
-export class DesignShowcaseComponent {
+export class DesignShowcaseComponent implements AfterViewInit, OnDestroy{
+
+  isVisible = false;
+  private observer?: IntersectionObserver;
+  constructor(private elementRef: ElementRef<HTMLElement>) {}
+
+  ngAfterViewInit(): void {
+    const section = this.elementRef.nativeElement.querySelector(
+      '.design-showcase'
+    );
+
+    if (!section) return;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      this.isVisible = true;
+      return;
+    }
+
+    this.observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.isVisible = true;
+          section.classList.add('is-visible');
+          this.observer?.disconnect();
+        }
+      },
+      {
+        rootMargin: '250px 0px',
+        threshold: 0
+      }
+    );
+
+    this.observer.observe(section);
+  }
+
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+  }
   title = 'DESIGNS';
 
   // Images displayed inside the large typography.
@@ -88,7 +129,7 @@ export class DesignShowcaseComponent {
       rotation: -12
     },
     {
-      src: '/portfolio-assets/main-design/4.jpg',
+      src: '/portfolio-assets/main-design/3.jpg',
       alt: 'Brand identity design',
       position: 'top-right',
       rotation: -17
@@ -106,7 +147,7 @@ export class DesignShowcaseComponent {
       rotation: -16
     },
     {
-      src: '/portfolio-assets/main-design/3.jpg',
+      src: '/portfolio-assets/main-design/4.jpg',
       alt: 'Creative advertising poster',
       position: 'bottom-right',
       rotation: -15
