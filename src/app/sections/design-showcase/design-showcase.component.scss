@@ -228,4 +228,19 @@
       animation: none;
     }
   }
+
+  /* Keep decorative animations idle before the section is reached */
+.design-showcase:not(.is-visible) .floating-artwork {
+  animation: none;
+}
+
+.design-showcase:not(.is-visible) .design-title-wrap {
+  animation: none;
+  opacity: 1;
+}
+
+/* Start decorative motion after visibility detection */
+.design-showcase.is-visible .floating-artwork {
+  animation: artworkFloat 7s ease-in-out infinite;
+}
   
