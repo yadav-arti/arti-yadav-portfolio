@@ -14,6 +14,7 @@ export class NavbarComponent {
   readonly navItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
+    { label: 'Tools', href: '#tools' },
     { label: 'Experience', href: '#experience' },
     { label: 'Designs', href: '#designs' }
   ];
