@@ -4,6 +4,7 @@ import { AboutComponent } from './sections/about/about.component';
 import { ExperienceComponent } from './sections/experience/experience.component';
 import { FooterComponent } from './sections/footer/footer.component';
 import { DesignShowcaseComponent } from './sections/design-showcase/design-showcase.component';
+import { ToolsShowcaseComponent } from './sections/tools-showcase/tools-showcase.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { DesignShowcaseComponent } from './sections/design-showcase/design-showc
     AboutComponent,
     ExperienceComponent,
     DesignShowcaseComponent,
+    ToolsShowcaseComponent,
     FooterComponent
   ],
   templateUrl: './app.component.html',
