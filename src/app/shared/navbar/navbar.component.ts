@@ -17,8 +17,7 @@ export class NavbarComponent {
     { label: 'Tools', href: '#tools' },
     { label: 'Experience', href: '#experience' },
     { label: 'Designs', href: '#designs' },
-    { label: 'Logo', href: '#logo-designs' },
-    { label: 'Broucher', href: '#Broucher' }
+    { label: 'Logo', href: '#logo-designs' }
   ];
 
   readonly resumeUrl = '/portfolio-assets/resume/arti-yadav-resume.pdf';
