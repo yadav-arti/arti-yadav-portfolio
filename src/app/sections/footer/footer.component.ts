@@ -19,7 +19,7 @@ export class FooterComponent {
     email: 'aartiy5057145@gmail.com',
     phone: '+91-9286191956',
     phoneLink: '+919286191956',
-    location: 'Bareilly, India',
+    location: 'Noida, India',
     emailSubject: 'Portfolio Contact'
   };
 
