@@ -1,4 +1,3 @@
-
 <section
   class="logo-showcase"
   id="logo-designs"
@@ -23,7 +22,6 @@
       [class.is-visible]="isVisible"
       aria-label="Logo designs"
     >
-
       <div
         class="logo-showcase__logo"
         [class.is-active]="activeLogo === 0"
@@ -36,7 +34,7 @@
         (keydown.space)="toggleLogo(0); $event.preventDefault()"
       >
         <img
-          src="/portfolio-assets/logos/4.png"
+          src="/portfolio-assets/logos/4.webp"
           alt="MarketNest logo"
           loading="lazy"
         />
@@ -54,7 +52,7 @@
         (keydown.space)="toggleLogo(1); $event.preventDefault()"
       >
         <img
-          src="/portfolio-assets/logos/8.png"
+          src="/portfolio-assets/logos/8.webp"
           alt="Serpent logo"
           loading="lazy"
         />
@@ -72,7 +70,7 @@
         (keydown.space)="toggleLogo(2); $event.preventDefault()"
       >
         <img
-          src="/portfolio-assets/logos/11.png"
+          src="/portfolio-assets/logos/11.webp"
           alt="Northern logo"
           loading="lazy"
         />
@@ -90,7 +88,7 @@
         (keydown.space)="toggleLogo(3); $event.preventDefault()"
       >
         <img
-          src="/portfolio-assets/logos/13.png"
+          src="/portfolio-assets/logos/13.webp"
           alt="Hook and Fish logo"
           loading="lazy"
         />
@@ -108,12 +106,102 @@
         (keydown.space)="toggleLogo(4); $event.preventDefault()"
       >
         <img
-          src="/portfolio-assets/logos/5.png"
+          src="/portfolio-assets/logos/5.webp"
           alt="Light Filmstrip logo"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full-screen Brand Mockup Section -->
+<section
+  class="full-image-showcase"
+  aria-label="Full-screen brand identity mockup"
+>
+  <img
+    class="full-image-showcase__image"
+    src="/portfolio-assets/logos/9.jpeg"
+    alt="Flav*r Nest complete brand identity mockup"
+    loading="lazy"
+  />
+</section>
+
+<!-- Brand Identity Showcase -->
+<section
+  class="brand-identity"
+  aria-labelledby="brand-identity-title"
+>
+  <div class="brand-identity__container">
+
+    <header class="brand-identity__header">
+      <h3 id="brand-identity-title">
+        Creating Identities That Make Brands Stand Out
+      </h3>
+
+      <p>
+        A logo is more than just a symbol — it’s the face of a brand.
+        I create unique, memorable, and meaningful logos that reflect
+        a brand’s personality, values, and vision.
+      </p>
+    </header>
+
+    <div class="brand-identity__gallery">
+
+      <div class="brand-identity__item brand-identity__item--cups">
+        <img
+          src="/portfolio-assets/logos/3.webp"
+          alt="MarketNest branded takeaway cups"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="brand-identity__item brand-identity__item--flyer">
+        <img
+          src="/portfolio-assets/logos/1.webp"
+          alt="MarketNest promotional flyer design"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="brand-identity__item brand-identity__item--card">
+        <img
+          src="/portfolio-assets/logos/6.webp"
+          alt="MarketNest business card mockup"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="brand-identity__item brand-identity__item--cards">
+        <img
+          src="/portfolio-assets/logos/2.webp"
+          alt="MarketNest business card designs"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="brand-identity__item brand-identity__item--cups-stack">
+        <img
+          src="/portfolio-assets/logos/7.webp"
+          alt="MarketNest takeaway cup mockup"
           loading="lazy"
         />
       </div>
 
     </div>
   </div>
+</section>
+
+<!-- Full-screen Brand Mockup Section -->
+<section
+  class="full-image-showcase"
+  aria-label="Full-screen brand identity mockup"
+>
+  <img
+    class="full-image-showcase__image"
+    src="/portfolio-assets/logos/10.webp"
+    alt="Flav*r Nest complete brand identity mockup"
+    loading="lazy"
+  />
 </section>
