@@ -1,0 +1,681 @@
+
+:host {
+    display: block;
+    width: 100%;
+  }
+  
+  /* =========================================
+     MAIN SECTION
+  ========================================= */
+  
+  .print-design {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    min-height: calc(100svh - 64px);
+  
+    box-sizing: border-box;
+    padding: clamp(28px, 4vh, 48px) clamp(24px, 5.8vw, 80px);
+  
+    color: #080808;
+  
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #eff5ff 40%,
+      #dceaff 75%,
+      #c9dfff 100%
+    );
+  }
+  
+  .print-design__container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  /* =========================================
+     HEADER - TWO COLUMN LAYOUT
+  ========================================= */
+  
+  .print-design__header {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    align-items: start;
+  
+    gap: 40px;
+    margin-bottom: clamp(14px, 2.5vh, 24px);
+  }
+  
+  .print-design__heading {
+    min-width: 0;
+  }
+  
+  .print-design__heading h2 {
+    margin: 0;
+  
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(42px, 5.4vw, 68px);
+    font-weight: 400;
+    line-height: 0.83;
+    letter-spacing: -0.045em;
+  }
+  
+  .print-design__tagline {
+    margin: 14px 0 0;
+  
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: clamp(12px, 1.1vw, 15px);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  
+  .print-design__description {
+    max-width: 470px;
+    justify-self: end;
+    padding-top: 2px;
+  }
+  
+  .print-design__description p {
+    margin: 0;
+  
+    color: #30343b;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: clamp(12px, 1.15vw, 15px);
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+  }
+  
+  /* =========================================
+     IMAGE GALLERY - FIGMA MOSAIC
+  ========================================= */
+  
+  .print-design__gallery {
+    display: grid;
+  
+    grid-template-columns: 1.72fr 0.95fr 1.05fr 1.05fr;
+    grid-template-rows: 1.25fr 1fr;
+  
+    grid-template-areas:
+      "large tall top right"
+      "large tall wide wide";
+  
+    gap: 9px;
+  
+    width: 100%;
+    height: clamp(220px, 55vh, 340px);
+  
+    overflow: hidden;
+  }
+  
+  /* Image boxes */
+  
+  .print-design__item {
+    position: relative;
+  
+    min-width: 0;
+    min-height: 0;
+
+    border-radius: 12px;
+  
+    overflow: hidden;
+    background: #e8edf5;
+  }
+  
+  .print-design__item img {
+    display: block;
+  
+    width: 100%;
+    height: 100%;
+  
+    object-fit: cover;
+    object-position: center;
+  
+    transition: transform 500ms ease;
+  }
+  
+  /* Grid positions */
+  
+  .print-design__item--large {
+    grid-area: large;
+  }
+  
+  .print-design__item--tall {
+    grid-area: tall;
+  }
+  
+  .print-design__item--top {
+    grid-area: top;
+  }
+  
+  .print-design__item--right {
+    grid-area: right;
+  }
+  
+  .print-design__item--wide {
+    grid-area: wide;
+  }
+  
+  /* Optional subtle hover */
+  
+  @media (hover: hover) and (pointer: fine) {
+    .print-design__item:hover img {
+      transform: scale(1.035);
+    }
+  }
+  
+  /* =========================================
+     SCROLL ANIMATION
+  ========================================= */
+  
+  .print-design__item {
+    opacity: 1;
+    transition:
+      opacity 850ms ease,
+      transform 850ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  /* Left-side images */
+  
+  .print-design__gallery.animate-on-scroll:not(.is-visible)
+  .print-design__item--large,
+  .print-design__gallery.animate-on-scroll:not(.is-visible)
+  .print-design__item--tall {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  
+  /* Right-side images */
+  
+  .print-design__gallery.animate-on-scroll:not(.is-visible)
+  .print-design__item--top,
+  .print-design__gallery.animate-on-scroll:not(.is-visible)
+  .print-design__item--right,
+  .print-design__gallery.animate-on-scroll:not(.is-visible)
+  .print-design__item--wide {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  
+  /* Visible state */
+  
+  .print-design__gallery.is-visible
+  .print-design__item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Staggered entrance */
+  
+  .print-design__gallery.is-visible
+  .print-design__item--large {
+    transition-delay: 0ms;
+  }
+  
+  .print-design__gallery.is-visible
+  .print-design__item--tall {
+    transition-delay: 120ms;
+  }
+  
+  .print-design__gallery.is-visible
+  .print-design__item--top {
+    transition-delay: 220ms;
+  }
+  
+  .print-design__gallery.is-visible
+  .print-design__item--right {
+    transition-delay: 320ms;
+  }
+  
+  .print-design__gallery.is-visible
+  .print-design__item--wide {
+    transition-delay: 420ms;
+  }
+  
+  /* =========================================
+     TABLET
+  ========================================= */
+  
+  @media (max-width: 900px) {
+    .print-design {
+      padding: 38px 28px;
+    }
+  
+    .print-design__header {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+  
+    .print-design__gallery {
+      height: clamp(250px, 42vw, 340px);
+      gap: 7px;
+    }
+  
+    .print-design__heading h2 {
+      font-size: clamp(42px, 6vw, 58px);
+    }
+  }
+  
+  /* =========================================
+     MOBILE
+  ========================================= */
+  
+  @media (max-width: 600px) {
+    .print-design {
+      min-height: auto;
+      padding: 42px 18px 48px;
+    }
+  
+    .print-design__header {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+  
+    .print-design__heading h2 {
+      font-size: clamp(44px, 12vw, 60px);
+      line-height: 0.85;
+    }
+  
+    .print-design__tagline {
+      margin-top: 12px;
+      font-size: 13px;
+    }
+  
+    .print-design__description {
+      max-width: 100%;
+      justify-self: start;
+    }
+  
+    .print-design__description p {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+  
+    /* Mobile gallery: stacked layout */
+  
+    .print-design__gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: 190px 190px 145px;
+  
+      grid-template-areas:
+        "large large"
+        "tall top"
+        "right wide";
+  
+      gap: 9px;
+      height: auto;
+    }
+  
+    .print-design__item--large img,
+    .print-design__item--tall img,
+    .print-design__item--top img,
+    .print-design__item--right img,
+    .print-design__item--wide img {
+      object-fit: cover;
+    }
+  
+    /* Shorter slide distance on mobile */
+  
+    .print-design__gallery.animate-on-scroll:not(.is-visible)
+    .print-design__item--large,
+    .print-design__gallery.animate-on-scroll:not(.is-visible)
+    .print-design__item--tall {
+      transform: translateX(-45px);
+    }
+  
+    .print-design__gallery.animate-on-scroll:not(.is-visible)
+    .print-design__item--top,
+    .print-design__gallery.animate-on-scroll:not(.is-visible)
+    .print-design__item--right,
+    .print-design__gallery.animate-on-scroll:not(.is-visible)
+    .print-design__item--wide {
+      transform: translateX(45px);
+    }
+  }
+  
+  /* Small mobile */
+  
+  @media (max-width: 360px) {
+    .print-design {
+      padding: 36px 14px;
+    }
+  
+    .print-design__gallery {
+      grid-template-rows: 160px 170px 125px;
+      gap: 7px;
+    }
+  }
+  
+  /* Short desktop screens */
+  
+  @media (max-height: 600px) and (min-width: 901px) {
+    .print-design {
+      padding-top: 22px;
+    //   padding-bottom: 6px;
+    }
+  
+    .print-design__heading h2 {
+      font-size: 48px;
+    }
+  
+    .print-design__header {
+      margin-bottom: 14px;
+    }
+  
+    .print-design__gallery {
+      height: 250px;
+    }
+  }
+  
+  /* =========================================
+     REDUCED MOTION
+  ========================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .print-design__item,
+    .print-design__item img {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+  
+
+
+/* =========================================
+   SECOND PRINT SHOWCASE - MERCHANDISE
+========================================= */
+
+.print-merch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    min-height: calc(100svh - 64px);
+  
+    box-sizing: border-box;
+    padding: clamp(1px, 1vh, 40px) clamp(24px, 5.8vw, 80px);
+  
+    background: linear-gradient(180deg, #cbdffd 0%, #e4efff 55%, #ffffff 100%);
+  }
+  
+  .print-merch__gallery {
+    display: grid;
+  
+    width: 100%;
+    max-width: 1400px;
+    height: clamp(800px, 72vh, 540px);
+  
+    grid-template-columns: 1.15fr 0.85fr 0.85fr 1.2fr;
+    grid-template-rows: 1fr 1fr;
+  
+    grid-template-areas:
+      "person person bag-one bag-two"
+      "shirts shirts model model";
+  
+    gap: 10px;
+  }
+  
+  /* Image item */
+  
+  .print-merch__item {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+  
+    overflow: hidden;
+    border-radius: 12px;
+    background: #e8eef8;
+  }
+  
+  .print-merch__item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  
+    object-fit: cover;
+    object-position: center;
+  
+    transition: transform 500ms ease;
+  }
+  
+  /* Grid positions */
+  
+  .print-merch__person {
+    grid-area: person;
+  }
+  
+  .print-merch__bag-one {
+    grid-area: bag-one;
+  }
+  
+  .print-merch__bag-two {
+    grid-area: bag-two;
+  }
+  
+  .print-merch__model {
+    grid-area: model;
+  }
+  
+  /* T-shirt gallery */
+  
+  .print-merch__shirts {
+    grid-area: shirts;
+  
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  
+    gap: 10px;
+    min-width: 0;
+    min-height: 0;
+  }
+  
+  .print-merch__shirt {
+    border-radius: 12px;
+  }
+  
+  /* Hover */
+  
+  @media (hover: hover) and (pointer: fine) {
+    .print-merch__item:hover img {
+      transform: scale(1.04);
+    }
+  }
+  
+  /* =========================================
+     SCROLL ANIMATION
+  ========================================= */
+  
+  .print-merch__item,
+  .print-merch__shirts {
+    opacity: 1;
+  
+    transition:
+      opacity 850ms ease,
+      transform 850ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  /* Left side */
+  
+  .print-merch__gallery.animate-on-scroll:not(.is-visible)
+  .print-merch__person,
+  .print-merch__gallery.animate-on-scroll:not(.is-visible)
+  .print-merch__shirts {
+    opacity: 0;
+    transform: translateX(-90px);
+  }
+  
+  /* Right side */
+  
+  .print-merch__gallery.animate-on-scroll:not(.is-visible)
+  .print-merch__bag-one,
+  .print-merch__gallery.animate-on-scroll:not(.is-visible)
+  .print-merch__bag-two,
+  .print-merch__gallery.animate-on-scroll:not(.is-visible)
+  .print-merch__model {
+    opacity: 0;
+    transform: translateX(90px);
+  }
+  
+  /* Visible state */
+  
+  .print-merch__gallery.is-visible
+  .print-merch__item,
+  .print-merch__gallery.is-visible
+  .print-merch__shirts {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Staggered animation */
+  
+  .print-merch__gallery.is-visible
+  .print-merch__person {
+    transition-delay: 0ms;
+  }
+  
+  .print-merch__gallery.is-visible
+  .print-merch__bag-one {
+    transition-delay: 150ms;
+  }
+  
+  .print-merch__gallery.is-visible
+  .print-merch__bag-two {
+    transition-delay: 250ms;
+  }
+  
+  .print-merch__gallery.is-visible
+  .print-merch__shirts {
+    transition-delay: 300ms;
+  }
+  
+  .print-merch__gallery.is-visible
+  .print-merch__model {
+    transition-delay: 400ms;
+  }
+  
+  /* =========================================
+     TABLET
+  ========================================= */
+  
+  @media (max-width: 900px) {
+    .print-merch {
+      padding: 35px 24px;
+    }
+  
+    .print-merch__gallery {
+      height: 440px;
+      gap: 8px;
+    }
+  
+    .print-merch__item,
+    .print-merch__shirt {
+      border-radius: 9px;
+    }
+  
+    .print-merch__shirts {
+      gap: 8px;
+    }
+  }
+  
+  /* =========================================
+     MOBILE
+  ========================================= */
+  
+  @media (max-width: 600px) {
+    .print-merch {
+      min-height: auto;
+      padding: 35px 18px 45px;
+    }
+  
+    .print-merch__gallery {
+      height: auto;
+  
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: 210px 170px 270px;
+  
+      grid-template-areas:
+        "person person"
+        "bag-one bag-two"
+        "shirts model";
+  
+      gap: 9px;
+    }
+  
+    .print-merch__person {
+      border-radius: 12px;
+    }
+  
+    .print-merch__bag-one,
+    .print-merch__bag-two {
+      border-radius: 10px;
+    }
+  
+    .print-merch__shirts {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+  
+    .print-merch__shirt {
+      border-radius: 9px;
+    }
+  
+    .print-merch__model {
+      border-radius: 12px;
+    }
+  
+    /* Shorter entrance distance */
+  
+    .print-merch__gallery.animate-on-scroll:not(.is-visible)
+    .print-merch__person,
+    .print-merch__gallery.animate-on-scroll:not(.is-visible)
+    .print-merch__shirts {
+      transform: translateX(-40px);
+    }
+  
+    .print-merch__gallery.animate-on-scroll:not(.is-visible)
+    .print-merch__bag-one,
+    .print-merch__gallery.animate-on-scroll:not(.is-visible)
+    .print-merch__bag-two,
+    .print-merch__gallery.animate-on-scroll:not(.is-visible)
+    .print-merch__model {
+      transform: translateX(40px);
+    }
+  }
+  
+  /* Small mobile */
+  
+  @media (max-width: 360px) {
+    .print-merch {
+      padding: 30px 14px;
+    }
+  
+    .print-merch__gallery {
+      grid-template-rows: 175px 145px 235px;
+      gap: 7px;
+    }
+  }
+  
+  /* Reduced motion */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .print-merch__item,
+    .print-merch__shirts,
+    .print-merch__item img {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+  
+
+  
