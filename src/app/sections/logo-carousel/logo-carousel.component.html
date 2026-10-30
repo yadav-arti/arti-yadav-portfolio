@@ -147,7 +147,11 @@
       </p>
     </header>
 
-    <div class="brand-identity__gallery">
+    <div
+      class="brand-identity__gallery"
+      [class.animate-on-scroll]="animationReady"
+      [class.is-visible]="brandIdentityVisible"
+    >
 
       <div class="brand-identity__item brand-identity__item--cups">
         <img
