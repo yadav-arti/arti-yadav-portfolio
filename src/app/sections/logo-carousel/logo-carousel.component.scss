@@ -644,3 +644,108 @@
     object-position: center;
   }
 }
+
+
+/* =========================================
+   BRAND IDENTITY - SCROLL ANIMATION
+========================================= */
+
+.brand-identity__gallery {
+  overflow: hidden;
+}
+
+/* Initial animation state */
+
+.brand-identity__gallery.animate-on-scroll:not(.is-visible)
+.brand-identity__item:nth-child(odd) {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.brand-identity__gallery.animate-on-scroll:not(.is-visible)
+.brand-identity__item:nth-child(even) {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+/* Center flyer: comes slightly from below */
+
+.brand-identity__gallery.animate-on-scroll:not(.is-visible)
+.brand-identity__item--flyer {
+  opacity: 0;
+  transform: translateY(70px) scale(0.94);
+}
+
+/* Smooth transition */
+
+.brand-identity__item {
+  opacity: 1;
+  transition:
+    opacity 850ms ease,
+    transform 850ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Visible state */
+
+.brand-identity__gallery.is-visible
+.brand-identity__item {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Staggered animation */
+
+.brand-identity__gallery.is-visible
+.brand-identity__item:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.brand-identity__gallery.is-visible
+.brand-identity__item:nth-child(2) {
+  transition-delay: 180ms;
+}
+
+.brand-identity__gallery.is-visible
+.brand-identity__item:nth-child(3) {
+  transition-delay: 300ms;
+}
+
+.brand-identity__gallery.is-visible
+.brand-identity__item:nth-child(4) {
+  transition-delay: 420ms;
+}
+
+.brand-identity__gallery.is-visible
+.brand-identity__item:nth-child(5) {
+  transition-delay: 540ms;
+}
+
+/* Mobile animation */
+
+@media (max-width: 600px) {
+  .brand-identity__gallery.animate-on-scroll:not(.is-visible)
+  .brand-identity__item:nth-child(odd) {
+    transform: translateX(-45px);
+  }
+
+  .brand-identity__gallery.animate-on-scroll:not(.is-visible)
+  .brand-identity__item:nth-child(even) {
+    transform: translateX(45px);
+  }
+
+  .brand-identity__gallery.animate-on-scroll:not(.is-visible)
+  .brand-identity__item--flyer {
+    transform: translateY(45px) scale(0.95);
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-identity__item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
