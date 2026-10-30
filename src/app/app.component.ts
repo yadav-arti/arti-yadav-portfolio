@@ -6,6 +6,7 @@ import { FooterComponent } from './sections/footer/footer.component';
 import { DesignShowcaseComponent } from './sections/design-showcase/design-showcase.component';
 import { ToolsShowcaseComponent } from './sections/tools-showcase/tools-showcase.component';
 import { LogoCarouselComponent } from './sections/logo-carousel/logo-carousel.component';
+import { SocialMediaDesignComponent } from './sections/social-media-design/social-media-design.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { LogoCarouselComponent } from './sections/logo-carousel/logo-carousel.co
     DesignShowcaseComponent,
     ToolsShowcaseComponent,
     LogoCarouselComponent,
+    SocialMediaDesignComponent,
     FooterComponent
   ],
   templateUrl: './app.component.html',
