@@ -1,0 +1,524 @@
+
+:host {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* =========================================
+     FIRST SOCIAL MEDIA DESIGN SECTION
+  ========================================= */
+  
+  .social-design {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    min-height: calc(100svh - 64px);
+  
+    box-sizing: border-box;
+    padding: clamp(30px, 4vh, 48px) clamp(24px, 4vw, 56px);
+  
+    color: #080808;
+  
+    background: linear-gradient(
+      180deg,
+      #cfe2ff 0%,
+      #deebff 45%,
+      #eff5ff 80%,
+      #ffffff 100%
+    );
+  }
+  
+  .social-design__container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  
+  .social-design__header {
+    max-width: 1100px;
+    margin: 0 auto clamp(24px, 3.5vh, 36px);
+    text-align: center;
+  }
+  
+  .social-design__header h2 {
+    margin: 0 0 8px;
+  
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(34px, 4vw, 56px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+  
+  .social-design__header h3 {
+    margin: 0 0 5px;
+  
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: clamp(12px, 1vw, 14px);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  
+  .social-design__header p {
+    max-width: 1000px;
+    margin: 0 auto;
+  
+    color: #202735;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: clamp(10px, 0.9vw, 12px);
+    line-height: 1.55;
+  }
+  
+  /* First image gallery */
+  
+  .social-design__gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+  
+    gap: clamp(10px, 1.2vw, 16px);
+    width: 100%;
+  }
+  
+  .social-design__item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 0.72;
+  
+    overflow: hidden;
+    border-radius: 3px;
+    background: #e8eef8;
+  }
+  
+  .social-design__item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  
+    object-fit: contain;
+    object-position: center;
+  
+    transition: transform 400ms ease;
+  }
+  
+  /* First gallery entrance animation */
+  
+  .social-design__gallery.animate-on-scroll:not(.is-visible)
+  .social-design__item:nth-child(odd) {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  
+  .social-design__gallery.animate-on-scroll:not(.is-visible)
+  .social-design__item:nth-child(even) {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  
+  .social-design__item {
+    transition:
+      opacity 850ms ease,
+      transform 850ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  .social-design__gallery.is-visible .social-design__item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .social-design__gallery.is-visible .social-design__item:nth-child(1) {
+    transition-delay: 0ms;
+  }
+  
+  .social-design__gallery.is-visible .social-design__item:nth-child(2) {
+    transition-delay: 120ms;
+  }
+  
+  .social-design__gallery.is-visible .social-design__item:nth-child(3) {
+    transition-delay: 240ms;
+  }
+  
+  .social-design__gallery.is-visible .social-design__item:nth-child(4) {
+    transition-delay: 360ms;
+  }
+  
+  /* First gallery hover */
+  
+  @media (hover: hover) and (pointer: fine) {
+    .social-design__item:hover img {
+      transform: scale(1.045);
+    }
+  }
+  
+  
+  /* =========================================
+     SECOND SOCIAL MEDIA CAMPAIGN SECTION
+  ========================================= */
+  
+  .social-campaign {
+    display: grid;
+    grid-template-columns: 1.12fr 0.95fr;
+    align-items: center;
+  
+    gap: clamp(24px, 3vw, 42px);
+  
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    min-height: calc(100svh - 64px);
+  
+    box-sizing: border-box;
+    padding: clamp(35px, 5vh, 55px) clamp(24px, 4vw, 56px);
+  
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #eff5ff 35%,
+      #deebff 100%
+    );
+  }
+  
+  /* Left: 2 x 2 image gallery */
+  
+  .social-campaign__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  
+    align-items: center;
+    gap: clamp(10px, 1.2vw, 16px);
+  
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  
+  .social-campaign__item {
+    position: relative;
+  
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+  
+    overflow: hidden;
+    border-radius: 2px;
+    background: #eef3fa;
+  }
+  
+  .social-campaign__item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  
+    object-fit: contain;
+    object-position: center;
+  
+    transition: transform 400ms ease;
+  }
+  
+  /* Left gallery comes from left */
+  
+  .social-campaign__gallery.animate-on-scroll:not(.is-visible) {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  
+  .social-campaign__gallery {
+    transition:
+      opacity 900ms ease,
+      transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  .social-campaign__gallery.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Right: featured content */
+  
+  .social-campaign__featured {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    min-width: 0;
+  }
+  
+  /* Right content comes from right */
+  
+  .social-campaign__featured.animate-on-scroll:not(.is-visible) {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  
+  .social-campaign__featured {
+    transition:
+      opacity 900ms ease,
+      transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  .social-campaign__featured.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 180ms;
+  }
+  
+  /* Design focus text */
+  
+  .social-campaign__focus {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto clamp(12px, 1.5vw, 20px);
+  
+    text-align: center;
+  }
+  
+  .social-campaign__focus p {
+    margin: 0;
+  
+    color: #171717;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: clamp(11px, 1vw, 14px);
+    font-weight: 400;
+    line-height: 1.55;
+  }
+  
+  .social-campaign__focus strong {
+    font-weight: 700;
+  }
+  
+  /* Large featured image */
+  
+  .social-campaign__featured-image {
+    width: 100%;
+    max-width: 500px;
+  
+    overflow: hidden;
+    background: #eef3fa;
+  }
+  
+  .social-campaign__featured-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  
+    object-fit: contain;
+    object-position: center;
+  
+    transition: transform 400ms ease;
+  }
+  
+  /* Second gallery hover */
+  
+  @media (hover: hover) and (pointer: fine) {
+    .social-campaign__item:hover img,
+    .social-campaign__featured-image:hover img {
+      transform: scale(1.035);
+    }
+  }
+  
+  
+  /* =========================================
+     TABLET RESPONSIVENESS
+  ========================================= */
+  
+  @media (max-width: 900px) {
+    .social-design {
+      padding: 40px 24px;
+    }
+  
+    .social-design__gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+  
+    .social-design__item {
+      aspect-ratio: 0.85;
+    }
+  
+    .social-campaign {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 40px 24px;
+    }
+  
+    .social-campaign__gallery {
+      gap: 10px;
+    }
+  
+    .social-campaign__featured-image {
+      max-width: 100%;
+    }
+  
+    .social-campaign__focus {
+      margin-bottom: 14px;
+    }
+  }
+  
+  
+  /* =========================================
+     MOBILE RESPONSIVENESS
+  ========================================= */
+  
+  @media (max-width: 600px) {
+    .social-design {
+      min-height: auto;
+      padding: 42px 20px;
+    }
+  
+    .social-design__header {
+      margin-bottom: 24px;
+    }
+  
+    .social-design__header h2 {
+      font-size: clamp(34px, 9vw, 44px);
+      margin-bottom: 12px;
+    }
+  
+    .social-design__header h3 {
+      font-size: 12px;
+    }
+  
+    .social-design__header p {
+      font-size: 11px;
+      line-height: 1.65;
+    }
+  
+    .social-design__gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+  
+    .social-design__item {
+      aspect-ratio: 0.72;
+    }
+  
+    /* Second campaign section */
+  
+    .social-campaign {
+      grid-template-columns: 1fr;
+      gap: 26px;
+  
+      min-height: auto;
+      padding: 38px 20px;
+    }
+  
+    .social-campaign__gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+  
+    .social-campaign__item {
+      aspect-ratio: 1 / 1;
+    }
+  
+    .social-campaign__featured {
+      width: 100%;
+    }
+  
+    .social-campaign__focus {
+      max-width: 100%;
+      margin-bottom: 15px;
+    }
+  
+    .social-campaign__focus p {
+      font-size: 12px;
+      line-height: 1.65;
+    }
+  
+    .social-campaign__featured-image {
+      width: 100%;
+      max-width: 100%;
+    }
+  
+    /* Mobile animation: use vertical movement */
+  
+    .social-design__gallery.animate-on-scroll:not(.is-visible)
+    .social-design__item:nth-child(odd) {
+      transform: translateX(-45px);
+    }
+  
+    .social-design__gallery.animate-on-scroll:not(.is-visible)
+    .social-design__item:nth-child(even) {
+      transform: translateX(45px);
+    }
+  
+    .social-campaign__gallery.animate-on-scroll:not(.is-visible) {
+      transform: translateX(-60px);
+    }
+  
+    .social-campaign__featured.animate-on-scroll:not(.is-visible) {
+      transform: translateX(60px);
+    }
+  }
+  
+  
+  /* =========================================
+     SMALL MOBILE
+  ========================================= */
+  
+  @media (max-width: 360px) {
+    .social-design {
+      padding: 36px 14px;
+    }
+  
+    .social-design__gallery {
+      gap: 8px;
+    }
+  
+    .social-campaign {
+      padding: 34px 14px;
+      gap: 20px;
+    }
+  
+    .social-campaign__gallery {
+      gap: 8px;
+    }
+  
+    .social-campaign__focus p {
+      font-size: 11px;
+    }
+  }
+  
+  
+  /* =========================================
+     SHORT DESKTOP SCREENS
+  ========================================= */
+  
+  @media (max-height: 600px) and (min-width: 901px) {
+    .social-design,
+    .social-campaign {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+  
+    .social-design__header {
+      margin-bottom: 20px;
+    }
+  }
+  
+  
+  /* =========================================
+     REDUCED MOTION ACCESSIBILITY
+  ========================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .social-design__item,
+    .social-design__item img,
+    .social-campaign__gallery,
+    .social-campaign__featured,
+    .social-campaign__item img,
+    .social-campaign__featured-image img {
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
+  
