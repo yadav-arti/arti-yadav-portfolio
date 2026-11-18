@@ -5,6 +5,7 @@ import {
   ElementRef,
   OnDestroy
 } from '@angular/core';
+import { ImageLoadingDirective } from '../../shared/directives/image-loading.directive';
 
 interface DesignArtwork {
   src: string;
@@ -23,7 +24,7 @@ interface FloatingArtwork {
 @Component({
   selector: 'app-design-showcase',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ImageLoadingDirective],
   templateUrl: './design-showcase.component.html',
   styleUrl: './design-showcase.component.scss'
 })

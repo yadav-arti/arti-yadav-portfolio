@@ -5,18 +5,19 @@ import {
   ElementRef,
   OnDestroy
 } from '@angular/core';
+import { ImageLoadingDirective } from '../../shared/directives/image-loading.directive';
 
 @Component({
   selector: 'app-social-media-design',
   standalone: true,
-  imports: [],
+  imports: [ImageLoadingDirective],
   templateUrl: './social-media-design.component.html',
   styleUrl: './social-media-design.component.scss'
 })
 export class SocialMediaDesignComponent
   implements AfterViewInit, OnDestroy {
 
-  animationReady = false;
+  animationReady = true;
 
   firstGalleryVisible = false;
   campaignGalleryVisible = false;
@@ -35,7 +36,6 @@ export class SocialMediaDesignComponent
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
-      this.showAllSections();
       return;
     }
 
@@ -63,8 +63,6 @@ export class SocialMediaDesignComponent
       this.showAllSections();
       return;
     }
-
-    this.animationReady = true;
 
     this.observer = new IntersectionObserver(
       (entries) => {

@@ -397,6 +397,7 @@
     justify-content: center;
   
     width: 100%;
+    overflow-x: clip;
     min-height: calc(100vh - 64px);
     min-height: calc(100svh - 64px);
   

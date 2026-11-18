@@ -1,15 +1,16 @@
 
 import { Component } from '@angular/core';
+import { ImageLoadingDirective } from '../directives/image-loading.directive';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [ImageLoadingDirective],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  readonly logo = '/portfolio-assets/hero/logo.png';
+  readonly logo = '/portfolio-assets/hero/logo-180.webp';
 
   readonly navItems = [
     { label: 'Home', href: '#home' },

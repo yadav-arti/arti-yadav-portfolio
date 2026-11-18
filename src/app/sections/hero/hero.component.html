@@ -37,8 +37,12 @@
 
       <div class="hero__portrait" appImageGlow="#008cff">
         <img
+          appImageLoading
           [src]="portrait"
           [alt]="name + ', creative designer'"
+          width="928"
+          height="1152"
+          loading="eager"
           fetchpriority="high"
         />
       </div>

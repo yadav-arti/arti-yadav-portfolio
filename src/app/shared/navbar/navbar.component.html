@@ -2,7 +2,7 @@
     <div class="navbar__inner">
 
         <a class="navbar__brand" href="#home" aria-label="Go to Home" (click)="closeMenu()">
-            <img class="navbar__logo" [src]="logo" alt="Portfolio logo" />
+            <img appImageLoading class="navbar__logo" [src]="logo" alt="Portfolio logo" />
         </a>
 
         <nav id="primary-navigation" class="navbar__links" [class.navbar__links--open]="menuOpen"

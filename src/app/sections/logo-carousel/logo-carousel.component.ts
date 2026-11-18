@@ -4,16 +4,18 @@ import {
   ElementRef,
   OnDestroy
 } from '@angular/core';
+import { ImageLoadingDirective } from '../../shared/directives/image-loading.directive';
 
 @Component({
   selector: 'app-logo-carousel',
   standalone: true,
+  imports: [ImageLoadingDirective],
   templateUrl: './logo-carousel.component.html',
   styleUrl: './logo-carousel.component.scss'
 })
 export class LogoCarouselComponent implements AfterViewInit, OnDestroy {
 
-  animationReady = false;
+  animationReady = true;
   isVisible = false;
 
   brandIdentityVisible = false;
@@ -33,9 +35,6 @@ export class LogoCarouselComponent implements AfterViewInit, OnDestroy {
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
-      this.isVisible = true;
-      this.brandIdentityVisible = true;
-      this.animationReady = false;
       return;
     }
 
@@ -63,8 +62,6 @@ export class LogoCarouselComponent implements AfterViewInit, OnDestroy {
     }
 
     // Enable animation classes before observing.
-    this.animationReady = true;
-
     this.observer = new IntersectionObserver(
       (entries) => {
 

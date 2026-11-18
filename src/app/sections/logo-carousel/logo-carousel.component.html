@@ -1,8 +1,4 @@
-<section
-  class="logo-showcase"
-  id="logo-designs"
-  aria-labelledby="logo-designs-title"
->
+<section class="logo-showcase" id="logo-designs" aria-labelledby="logo-designs-title">
   <div class="logo-showcase__container">
 
     <header class="logo-showcase__header">
@@ -16,123 +12,49 @@
       </p>
     </header>
 
-    <div
-      class="logo-showcase__gallery"
-      [class.animate-on-scroll]="animationReady"
-      [class.is-visible]="isVisible"
-      aria-label="Logo designs"
-    >
-      <div
-        class="logo-showcase__logo"
-        [class.is-active]="activeLogo === 0"
-        role="button"
-        tabindex="0"
-        [attr.aria-pressed]="activeLogo === 0"
-        aria-label="Preview MarketNest logo"
-        (click)="toggleLogo(0)"
-        (keydown.enter)="toggleLogo(0)"
-        (keydown.space)="toggleLogo(0); $event.preventDefault()"
-      >
-        <img
-          src="/portfolio-assets/logos/4.webp"
-          alt="MarketNest logo"
-          loading="lazy"
-        />
+    <div class="logo-showcase__gallery" [class.animate-on-scroll]="animationReady" [class.is-visible]="isVisible"
+      aria-label="Logo designs">
+      <div class="logo-showcase__logo" [class.is-active]="activeLogo === 0" role="button" tabindex="0"
+        [attr.aria-pressed]="activeLogo === 0" aria-label="Preview MarketNest logo" (click)="toggleLogo(0)"
+        (keydown.enter)="toggleLogo(0)" (keydown.space)="toggleLogo(0); $event.preventDefault()">
+        <img appImageLoading src="/portfolio-assets/logos/4-280.webp" alt="MarketNest logo" loading="lazy" />
       </div>
 
-      <div
-        class="logo-showcase__logo"
-        [class.is-active]="activeLogo === 1"
-        role="button"
-        tabindex="0"
-        [attr.aria-pressed]="activeLogo === 1"
-        aria-label="Preview Serpent logo"
-        (click)="toggleLogo(1)"
-        (keydown.enter)="toggleLogo(1)"
-        (keydown.space)="toggleLogo(1); $event.preventDefault()"
-      >
-        <img
-          src="/portfolio-assets/logos/8.webp"
-          alt="Serpent logo"
-          loading="lazy"
-        />
+      <div class="logo-showcase__logo" [class.is-active]="activeLogo === 1" role="button" tabindex="0"
+        [attr.aria-pressed]="activeLogo === 1" aria-label="Preview Serpent logo" (click)="toggleLogo(1)"
+        (keydown.enter)="toggleLogo(1)" (keydown.space)="toggleLogo(1); $event.preventDefault()">
+        <img appImageLoading src="/portfolio-assets/logos/8-280.webp" alt="Serpent logo" loading="lazy" />
       </div>
 
-      <div
-        class="logo-showcase__logo"
-        [class.is-active]="activeLogo === 2"
-        role="button"
-        tabindex="0"
-        [attr.aria-pressed]="activeLogo === 2"
-        aria-label="Preview Northern logo"
-        (click)="toggleLogo(2)"
-        (keydown.enter)="toggleLogo(2)"
-        (keydown.space)="toggleLogo(2); $event.preventDefault()"
-      >
-        <img
-          src="/portfolio-assets/logos/11.webp"
-          alt="Northern logo"
-          loading="lazy"
-        />
+      <div class="logo-showcase__logo" [class.is-active]="activeLogo === 2" role="button" tabindex="0"
+        [attr.aria-pressed]="activeLogo === 2" aria-label="Preview Northern logo" (click)="toggleLogo(2)"
+        (keydown.enter)="toggleLogo(2)" (keydown.space)="toggleLogo(2); $event.preventDefault()">
+        <img appImageLoading src="/portfolio-assets/logos/11-200.webp" alt="Northern logo" loading="lazy" />
       </div>
 
-      <div
-        class="logo-showcase__logo"
-        [class.is-active]="activeLogo === 3"
-        role="button"
-        tabindex="0"
-        [attr.aria-pressed]="activeLogo === 3"
-        aria-label="Preview Hook and Fish logo"
-        (click)="toggleLogo(3)"
-        (keydown.enter)="toggleLogo(3)"
-        (keydown.space)="toggleLogo(3); $event.preventDefault()"
-      >
-        <img
-          src="/portfolio-assets/logos/13.webp"
-          alt="Hook and Fish logo"
-          loading="lazy"
-        />
+      <div class="logo-showcase__logo" [class.is-active]="activeLogo === 3" role="button" tabindex="0"
+        [attr.aria-pressed]="activeLogo === 3" aria-label="Preview Hook and Fish logo" (click)="toggleLogo(3)"
+        (keydown.enter)="toggleLogo(3)" (keydown.space)="toggleLogo(3); $event.preventDefault()">
+        <img appImageLoading src="/portfolio-assets/logos/13-280.webp" alt="Hook and Fish logo" loading="lazy" />
       </div>
 
-      <div
-        class="logo-showcase__logo"
-        [class.is-active]="activeLogo === 4"
-        role="button"
-        tabindex="0"
-        [attr.aria-pressed]="activeLogo === 4"
-        aria-label="Preview Light Filmstrip logo"
-        (click)="toggleLogo(4)"
-        (keydown.enter)="toggleLogo(4)"
-        (keydown.space)="toggleLogo(4); $event.preventDefault()"
-      >
-        <img
-          src="/portfolio-assets/logos/5.webp"
-          alt="Light Filmstrip logo"
-          loading="lazy"
-        />
+      <div class="logo-showcase__logo" [class.is-active]="activeLogo === 4" role="button" tabindex="0"
+        [attr.aria-pressed]="activeLogo === 4" aria-label="Preview Light Filmstrip logo" (click)="toggleLogo(4)"
+        (keydown.enter)="toggleLogo(4)" (keydown.space)="toggleLogo(4); $event.preventDefault()">
+        <img appImageLoading src="/portfolio-assets/logos/5-200.webp" alt="Light Filmstrip logo" loading="lazy" />
       </div>
     </div>
   </div>
 </section>
 
 <!-- Full-screen Brand Mockup Section -->
-<section
-  class="full-image-showcase"
-  aria-label="Full-screen brand identity mockup"
->
-  <img
-    class="full-image-showcase__image"
-    src="/portfolio-assets/logos/9.webp"
-    alt="Flav*r Nest complete brand identity mockup"
-    loading="lazy"
-  />
+<section class="full-image-showcase" aria-label="Full-screen brand identity mockup">
+  <img appImageLoading class="full-image-showcase__image" src="/portfolio-assets/logos/9.webp"
+    alt="Flav*r Nest complete brand identity mockup" loading="lazy" />
 </section>
 
 <!-- Brand Identity Showcase -->
-<section
-  class="brand-identity"
-  aria-labelledby="brand-identity-title"
->
+<section class="brand-identity" aria-labelledby="brand-identity-title">
   <div class="brand-identity__container">
 
     <header class="brand-identity__header">
@@ -147,50 +69,27 @@
       </p>
     </header>
 
-    <div
-      class="brand-identity__gallery"
-      [class.animate-on-scroll]="animationReady"
-      [class.is-visible]="brandIdentityVisible"
-    >
+    <div class="brand-identity__gallery" [class.animate-on-scroll]="animationReady"
+      [class.is-visible]="brandIdentityVisible">
 
       <div class="brand-identity__item brand-identity__item--cups">
-        <img
-          src="/portfolio-assets/logos/3.webp"
-          alt="MarketNest branded takeaway cups"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/logos/3.webp" alt="MarketNest branded takeaway cups" loading="lazy" />
       </div>
 
       <div class="brand-identity__item brand-identity__item--flyer">
-        <img
-          src="/portfolio-assets/logos/1.webp"
-          alt="MarketNest promotional flyer design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/logos/1.webp" alt="MarketNest promotional flyer design" loading="lazy" />
       </div>
 
       <div class="brand-identity__item brand-identity__item--card">
-        <img
-          src="/portfolio-assets/logos/6.png"
-          alt="MarketNest business card mockup"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/logos/6.png" alt="MarketNest business card mockup" loading="lazy" />
       </div>
 
       <div class="brand-identity__item brand-identity__item--cards">
-        <img
-          src="/portfolio-assets/logos/2.webp"
-          alt="MarketNest business card designs"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/logos/2.webp" alt="MarketNest business card designs" loading="lazy" />
       </div>
 
       <div class="brand-identity__item brand-identity__item--cups-stack">
-        <img
-          src="/portfolio-assets/logos/7.webp"
-          alt="MarketNest takeaway cup mockup"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/logos/7.webp" alt="MarketNest takeaway cup mockup" loading="lazy" />
       </div>
 
     </div>
@@ -198,14 +97,7 @@
 </section>
 
 <!-- Full-screen Brand Mockup Section -->
-<section
-  class="full-image-showcase"
-  aria-label="Full-screen brand identity mockup"
->
-  <img
-    class="full-image-showcase__image"
-    src="/portfolio-assets/logos/10.webp"
-    alt="Flav*r Nest complete brand identity mockup"
-    loading="lazy"
-  />
+<section class="full-image-showcase" aria-label="Full-screen brand identity mockup">
+  <img appImageLoading class="full-image-showcase__image" src="/portfolio-assets/logos/10.webp"
+    alt="Flav*r Nest complete brand identity mockup" loading="lazy" />
 </section>

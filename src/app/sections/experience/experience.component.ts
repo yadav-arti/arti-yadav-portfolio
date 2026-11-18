@@ -1,5 +1,6 @@
 
 import { AfterViewInit, Component, ElementRef, OnDestroy } from '@angular/core';
+import { ImageLoadingDirective } from '../../shared/directives/image-loading.directive';
 
 interface ExperienceItem {
   period: string;
@@ -10,7 +11,7 @@ interface ExperienceItem {
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [],
+  imports: [ImageLoadingDirective],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss'
 })

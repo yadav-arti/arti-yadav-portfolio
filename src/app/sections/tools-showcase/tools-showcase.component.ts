@@ -6,6 +6,7 @@ import {
   ElementRef,
   OnDestroy
 } from '@angular/core';
+import { ImageLoadingDirective } from '../../shared/directives/image-loading.directive';
 
 interface DesignTool {
   id: string;
@@ -19,7 +20,7 @@ interface DesignTool {
 @Component({
   selector: 'app-tools-showcase',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ImageLoadingDirective],
   templateUrl: './tools-showcase.component.html',
   styleUrl: './tools-showcase.component.scss'
 })

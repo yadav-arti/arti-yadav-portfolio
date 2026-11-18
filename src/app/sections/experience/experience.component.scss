@@ -229,9 +229,7 @@
     filter: blur(35px);
     opacity: 0.45;
   
-    animation:
-      experience-glow 5s ease-in-out infinite,
-      experience-glow-colors 8s linear infinite;
+    animation: experience-glow 5s ease-in-out infinite;
   }
   
   /* Remove the image outline completely */
@@ -263,27 +261,11 @@
     100% {
       opacity: 0.3;
       transform: scale(0.985);
-      filter: blur(22px);
     }
   
     50% {
       opacity: 0.75;
       transform: scale(1.025);
-      filter: blur(32px);
-    }
-  }
-  
-  @keyframes experience-glow-colors {
-    0% {
-      background-position: 0% 50%;
-    }
-  
-    50% {
-      background-position: 100% 50%;
-    }
-  
-    100% {
-      background-position: 0% 50%;
     }
   }
   

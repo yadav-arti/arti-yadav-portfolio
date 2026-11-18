@@ -1,9 +1,4 @@
-
-<section
-  class="print-design"
-  id="print-design"
-  aria-labelledby="print-design-title"
->
+<section class="print-design" id="print-design" aria-labelledby="print-design-title">
   <div class="print-design__container">
 
     <!-- Header -->
@@ -33,56 +28,32 @@
     </header>
 
     <!-- Image Gallery -->
-    <div
-      class="print-design__gallery"
-      [class.animate-on-scroll]="animationReady"
-      [class.is-visible]="isVisible"
-      aria-label="Print design portfolio"
-    >
+    <div class="print-design__gallery" [class.animate-on-scroll]="animationReady" [class.is-visible]="isVisible"
+      aria-label="Print design portfolio">
 
       <!-- Large left image -->
       <div class="print-design__item print-design__item--large">
-        <img
-          src="/portfolio-assets/print-design/4.webp"
-          alt="Glowin branded paper bag design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/print-design/4.webp" alt="Glowin branded paper bag design" loading="lazy" />
       </div>
 
       <!-- Tall middle image -->
       <div class="print-design__item print-design__item--tall">
-        <img
-          src="/portfolio-assets/print-design/2.webp"
-          alt="Promotional beverage packaging design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/print-design/2.webp" alt="Promotional beverage packaging design" loading="lazy" />
       </div>
 
       <!-- Top right image -->
       <div class="print-design__item print-design__item--top">
-        <img
-          src="/portfolio-assets/print-design/1.webp"
-          alt="Product packaging print design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/print-design/1.webp" alt="Product packaging print design" loading="lazy" />
       </div>
 
       <!-- Top far right image -->
       <div class="print-design__item print-design__item--right">
-        <img
-          src="/portfolio-assets/print-design/5.webp" 
-          alt="Bottle label print design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/print-design/5.webp" alt="Bottle label print design" loading="lazy" />
       </div>
 
       <!-- Bottom wide image -->
       <div class="print-design__item print-design__item--wide">
-        <img
-          src="/portfolio-assets/print-design/3.webp"
-          alt="Dental clinic promotional print design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/print-design/3.webp" alt="Dental clinic promotional print design" loading="lazy" />
       </div>
 
     </div>
@@ -92,87 +63,48 @@
 
 
 <!-- Second Print Design Showcase -->
-<section
-  class="print-merch"
-  aria-label="Branded merchandise and apparel designs"
->
-  <div
-    class="print-merch__gallery"
-    [class.animate-on-scroll]="animationReady"
-    [class.is-visible]="merchVisible"
-  >
+<section class="print-merch" aria-label="Branded merchandise and apparel designs">
+  <div class="print-merch__gallery" [class.animate-on-scroll]="animationReady" [class.is-visible]="merchVisible">
 
     <!-- Top left: Person with branded shopping bags -->
     <div class="print-merch__item print-merch__person">
-      <img
-        src="/portfolio-assets/print-design/6.webp"
-        alt="Person holding branded shopping bags"
-        loading="lazy"
-      />
+      <img appImageLoading src="/portfolio-assets/print-design/6.webp" alt="Person holding branded shopping bags" loading="eager" />
     </div>
 
     <!-- Top right: Shopping bag mockup 1 -->
     <div class="print-merch__item print-merch__bag-one">
-      <img
-        src="/portfolio-assets/print-design/13.webp"
-        alt="Branded shopping bag mockup"
-        loading="lazy"
-      />
+      <img appImageLoading src="/portfolio-assets/print-design/13.webp" alt="Branded shopping bag mockup" loading="lazy" />
     </div>
 
     <!-- Top right: Shopping bag mockup 2 -->
     <div class="print-merch__item print-merch__bag-two">
-      <img
-        src="/portfolio-assets/print-design/7.webp"
-        alt="STEP branded shopping bag mockup"
-        loading="lazy"
-      />
+      <img appImageLoading src="/portfolio-assets/print-design/7.webp" alt="STEP branded shopping bag mockup" loading="lazy" />
     </div>
 
     <!-- Bottom left: T-shirt designs -->
     <div class="print-merch__shirts">
 
       <div class="print-merch__item print-merch__shirt">
-        <img
-          src="/portfolio-assets/print-design/9.webp"
-          alt="Never give up T-shirt design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/print-design/9.webp" alt="Never give up T-shirt design" loading="lazy" />
       </div>
 
       <div class="print-merch__item print-merch__shirt">
-        <img
-          src="/portfolio-assets/print-design/10.webp"
-          alt="Dream never stop T-shirt design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/print-design/10.webp" alt="Dream never stop T-shirt design" loading="lazy" />
       </div>
 
       <div class="print-merch__item print-merch__shirt">
-        <img
-          src="/portfolio-assets/print-design/11.webp"
-          alt="STEP branded T-shirt design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/print-design/11.webp" alt="STEP branded T-shirt design" loading="lazy" />
       </div>
 
       <div class="print-merch__item print-merch__shirt">
-        <img
-          src="/portfolio-assets/print-design/12.webp"
-          alt="Never quit T-shirt design"
-          loading="lazy"
-        />
+        <img appImageLoading src="/portfolio-assets/print-design/12.webp" alt="Never quit T-shirt design" loading="lazy" />
       </div>
 
     </div>
 
     <!-- Bottom right: Large T-shirt model -->
     <div class="print-merch__item print-merch__model">
-      <img
-        src="/portfolio-assets/print-design/8.webp"
-        alt="Model wearing branded STEP T-shirt"
-        loading="lazy"
-      />
+      <img appImageLoading src="/portfolio-assets/print-design/8.webp" alt="Model wearing branded STEP T-shirt" loading="lazy" />
     </div>
 
   </div>

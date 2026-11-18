@@ -1,9 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
 :root {
+  --navbar-height: 76px;
+
   --color-blue: #0750b5;
   --color-black: #111111;
   --color-white: #ffffff;
@@ -28,6 +27,17 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  overflow-x: clip;
+}
+
+html::-webkit-scrollbar-track {
+  margin-top: var(--navbar-height);
+}
+
+@media (max-width: 1000px) {
+  :root {
+    --navbar-height: 60px;
+  }
 }
 
 body {
@@ -47,6 +57,49 @@ textarea {
 img {
   display: block;
   max-width: 100%;
+}
+
+.image-loading {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #e8eef8;
+}
+
+.image-loading > img {
+  visibility: hidden;
+}
+
+.image-loading::after {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 60%;
+  background: linear-gradient(
+    105deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.65) 50%,
+    transparent 85%
+  );
+  content: '';
+  pointer-events: none;
+}
+
+.image-loading--nearby::after {
+  animation: image-skeleton-shimmer 1.35s ease-in-out infinite;
+  will-change: transform;
+}
+
+.image-load-error {
+  background-color: #e8eef8;
+}
+
+@keyframes image-skeleton-shimmer {
+  to {
+    transform: translateX(265%);
+  }
 }
 
 a {
@@ -81,6 +134,15 @@ button {
     scroll-behavior: auto !important;
     animation-duration: 0.05ms !important;
     transition-duration: 0.05ms !important;
+  }
+
+  .image-loading::after {
+    animation: none;
+    transform: none;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.28);
+    will-change: auto;
   }
 }
 

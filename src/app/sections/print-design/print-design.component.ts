@@ -5,17 +5,18 @@ import {
   ElementRef,
   OnDestroy
 } from '@angular/core';
+import { ImageLoadingDirective } from '../../shared/directives/image-loading.directive';
 
 @Component({
   selector: 'app-print-design',
   standalone: true,
-  imports: [],
+  imports: [ImageLoadingDirective],
   templateUrl: './print-design.component.html',
   styleUrl: './print-design.component.scss'
 })
 export class PrintDesignComponent implements AfterViewInit, OnDestroy {
 
-  animationReady = false;
+  animationReady = true;
   isVisible = false;
   merchVisible = false;
 
@@ -31,8 +32,6 @@ export class PrintDesignComponent implements AfterViewInit, OnDestroy {
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
-      this.isVisible = true;
-      this.merchVisible = true;
       return;
     }
 
@@ -52,8 +51,6 @@ export class PrintDesignComponent implements AfterViewInit, OnDestroy {
       this.merchVisible = true;
       return;
     }
-
-    this.animationReady = true;
 
     this.observer = new IntersectionObserver(
       (entries) => {
