@@ -27,11 +27,11 @@ interface FloatingArtwork {
   templateUrl: './design-showcase.component.html',
   styleUrl: './design-showcase.component.scss'
 })
-export class DesignShowcaseComponent implements AfterViewInit, OnDestroy{
+export class DesignShowcaseComponent implements AfterViewInit, OnDestroy {
 
   isVisible = false;
   private observer?: IntersectionObserver;
-  constructor(private elementRef: ElementRef<HTMLElement>) {}
+  constructor(private elementRef: ElementRef<HTMLElement>) { }
 
   ngAfterViewInit(): void {
     const section = this.elementRef.nativeElement.querySelector(
@@ -71,43 +71,43 @@ export class DesignShowcaseComponent implements AfterViewInit, OnDestroy{
   // Replace these paths with your actual portfolio artwork.
   letterArtworks: DesignArtwork[] = [
     {
-      src: '/portfolio-assets/main-design/1.jpg',
+      src: '/portfolio-assets/main-design/1.webp',
       alt: 'Creative poster design',
       x: 0,
       width: 260
     },
     {
-      src: '/portfolio-assets/main-design/2.jpg',
+      src: '/portfolio-assets/main-design/2.webp',
       alt: 'Branding artwork',
       x: 220,
       width: 260
     },
     {
-      src: '/portfolio-assets/main-design/3.jpg',
+      src: '/portfolio-assets/main-design/3.webp',
       alt: 'Social media design',
       x: 440,
       width: 260
     },
     {
-      src: '/portfolio-assets/main-design/4.jpg',
+      src: '/portfolio-assets/main-design/4.webp',
       alt: 'Packaging design',
       x: 660,
       width: 260
     },
     {
-      src: '/portfolio-assets/main-design/5.jpg',
+      src: '/portfolio-assets/main-design/5.webp',
       alt: 'Product advertisement',
       x: 880,
       width: 260
     },
     {
-      src: '/portfolio-assets/main-design/6.jpg',
+      src: '/portfolio-assets/main-design/6.webp',
       alt: 'Promotional graphic design',
       x: 1100,
       width: 260
     },
     {
-      src: '/portfolio-assets/main-design/7.jpg',
+      src: '/portfolio-assets/main-design/7.webp',
       alt: 'Creative visual identity',
       x: 1300,
       width: 260
@@ -117,37 +117,37 @@ export class DesignShowcaseComponent implements AfterViewInit, OnDestroy{
   // Decorative artwork around the typography.
   floatingArtworks: FloatingArtwork[] = [
     {
-      src: '/portfolio-assets/main-design/2.jpg',
+      src: '/portfolio-assets/main-design/2.webp',
       alt: 'Travel campaign poster',
       position: 'top-left',
       rotation: -16
     },
     {
-      src: '/portfolio-assets/main-design/7.jpg',
+      src: '/portfolio-assets/main-design/7.webp',
       alt: 'Promotional social media artwork',
       position: 'top-middle',
       rotation: -12
     },
     {
-      src: '/portfolio-assets/main-design/3.jpg',
+      src: '/portfolio-assets/main-design/3.webp',
       alt: 'Brand identity design',
       position: 'top-right',
       rotation: -17
     },
     {
-      src: '/portfolio-assets/main-design/5.jpg',
+      src: '/portfolio-assets/main-design/5.webp',
       alt: 'Packaging portfolio artwork',
       position: 'bottom-left',
       rotation: -15
     },
     {
-      src: '/portfolio-assets/main-design/6.jpg',
+      src: '/portfolio-assets/main-design/6.webp',
       alt: 'Product advertising design',
       position: 'bottom-middle',
       rotation: -16
     },
     {
-      src: '/portfolio-assets/main-design/4.jpg',
+      src: '/portfolio-assets/main-design/4.webp',
       alt: 'Creative advertising poster',
       position: 'bottom-right',
       rotation: -15
