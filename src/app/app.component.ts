@@ -8,6 +8,7 @@ import { ToolsShowcaseComponent } from './sections/tools-showcase/tools-showcase
 import { LogoCarouselComponent } from './sections/logo-carousel/logo-carousel.component';
 import { SocialMediaDesignComponent } from './sections/social-media-design/social-media-design.component';
 import { PrintDesignComponent } from './sections/print-design/print-design.component';
+import { StandeesDesignComponent } from './sections/standees-design/standees-design.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ import { PrintDesignComponent } from './sections/print-design/print-design.compo
     LogoCarouselComponent,
     SocialMediaDesignComponent,
     PrintDesignComponent,
+    StandeesDesignComponent,
     FooterComponent
   ],
   templateUrl: './app.component.html',

@@ -1,0 +1,91 @@
+<section
+  class="standees-design"
+  [class.is-visible]="postersVisible || rollupsVisible"
+  id="standees-design"
+>
+  <div class="standees-design__container">
+    <section class="standees-design__posters" aria-labelledby="standees-design-title">
+      <header class="standees-design__intro">
+        <div class="standees-design__intro-copy">
+          <span class="standees-design__eyebrow">Print &amp; Display</span>
+          <h2 id="standees-design-title">Standee Designs</h2>
+          <p class="standees-design__tagline">Big ideas, ready to stand tall.</p>
+        </div>
+
+        <p class="standees-design__description">
+          A collection of roll-up standees and display posters designed to make
+          brands and ideas impossible to miss, from the first glance to the last detail.
+        </p>
+      </header>
+
+      <div
+        class="standees-design__gallery standees-design__gallery--posters"
+        [class.is-visible]="postersVisible"
+        aria-label="Wall poster designs"
+        role="list"
+      >
+        @for (design of wallPosters; track design.src; let index = $index) {
+          <div
+            class="standees-design__poster-image"
+            [style.--poster-delay]="index * 110 + 'ms'"
+            role="listitem"
+          >
+            <img
+              appImageLoading
+              [src]="design.src"
+              [alt]="design.alt"
+              loading="lazy"
+            />
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="standees-design__rollups" aria-labelledby="standees-rollups-title">
+      <header class="standees-design__rollups-header">
+        <div>
+          <span class="standees-design__eyebrow">Exhibition Collection</span>
+          <div class="standees-design__rollups-title">
+            <h2 id="standees-rollups-title">Roll-Up Standees</h2>
+            <span class="standees-design__count" aria-label="6 standee designs">
+              {{ rollupCount }}
+            </span>
+          </div>
+        </div>
+        <p class="standees-design__series">STEP WIRES &amp; CABLES · LINCOLN SERIES</p>
+      </header>
+
+      <div
+        class="standees-design__gallery standees-design__gallery--rollups"
+        [class.is-visible]="rollupsVisible"
+        aria-label="Roll-up standee designs"
+      >
+        @for (design of rollupStandees; track design.src; let index = $index) {
+          <article
+            class="standees-design__card"
+            [style.--roll-delay]="index * 90 + 'ms'"
+            [style.--image-zoom]="design.zoom"
+          >
+            <div class="standees-design__card-content">
+              <span class="standees-design__standee-image">
+                <span class="standees-design__reveal">
+                  <img
+                    appImageLoading
+                    [src]="design.src"
+                    [alt]="design.alt"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="standees-design__roller" aria-hidden="true"></span>
+              </span>
+              <div class="standees-design__card-caption">
+                <h3>{{ design.title }}</h3>
+                <span class="standees-design__card-number">{{ design.number }}</span>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+  </div>
+</section>

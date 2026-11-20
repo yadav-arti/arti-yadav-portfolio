@@ -20,7 +20,8 @@ export class NavbarComponent {
     { label: 'Designs', href: '#designs' },
     { label: 'Logo', href: '#logo-designs' },
     { label: 'Social Media', href: '#social-media-design' },
-    { label: 'Print Design', href: '#print-design' }
+    { label: 'Print Design', href: '#print-design' },
+    { label: 'Standees', href: '#standees-design' }
   ];
 
   readonly resumeUrl = '/portfolio-assets/resume/arti-yadav-resume.pdf';
