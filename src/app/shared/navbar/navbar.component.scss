@@ -15,6 +15,32 @@
     border-bottom: 1px solid rgba(7, 80, 181, 0.08);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+    overflow: visible;
+  }
+
+  :host::before {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: -20%;
+    width: 18%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #55cfff, #0750b5, transparent);
+    box-shadow: 0 0 12px rgba(39, 161, 255, 0.9);
+    content: '';
+    pointer-events: none;
+    animation: navbar-signal-scan 5.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  :host::after {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 5%, rgba(7, 80, 181, 0.28), transparent 95%);
+    content: '';
+    pointer-events: none;
   }
   
   .navbar {
@@ -43,6 +69,27 @@
     align-items: center;
     flex: 0 0 auto;
     text-decoration: none;
+  }
+
+  .navbar__brand {
+    position: relative;
+  }
+
+  .navbar__brand::after {
+    position: absolute;
+    top: 12%;
+    left: -18%;
+    width: 12%;
+    height: 76%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent);
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    transform: skewX(-18deg);
+  }
+
+  .navbar__brand:hover::after {
+    animation: navbar-logo-shimmer 850ms ease-out;
   }
   
   .navbar__logo {
@@ -74,7 +121,25 @@
     text-decoration: none;
     white-space: nowrap;
   
-    transition: color 200ms ease;
+    transition:
+      color 220ms ease,
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      text-shadow 220ms ease;
+  }
+
+  .navbar__link::before {
+    position: absolute;
+    z-index: -1;
+    inset: -4px -8px -2px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    content: '';
+    opacity: 0;
+    transform: scale(0.82) rotateX(12deg);
+    transition:
+      opacity 220ms ease,
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 220ms ease;
   }
   
   .navbar__link::after {
@@ -95,6 +160,16 @@
   .navbar__link:hover,
   .navbar__link--active {
     color: var(--color-blue, #0750b5);
+    text-shadow: 0 0 14px rgba(7, 80, 181, 0.18);
+    transform: translateY(-2px);
+  }
+
+  .navbar__link:hover::before,
+  .navbar__link--active::before {
+    border-color: rgba(7, 80, 181, 0.12);
+    background: linear-gradient(135deg, rgba(7, 80, 181, 0.05), rgba(85, 207, 255, 0.08));
+    opacity: 1;
+    transform: scale(1) rotateX(0);
   }
   
   .navbar__link:hover::after,
@@ -130,12 +205,72 @@
       transform 200ms ease,
       box-shadow 200ms ease,
       background 200ms ease;
+    overflow: hidden;
+  }
+
+  .resume-button::before {
+    position: absolute;
+    top: -40%;
+    left: -60%;
+    width: 38%;
+    height: 180%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.78), transparent);
+    content: '';
+    transform: rotate(18deg);
+  }
+
+  .resume-button:hover::before {
+    animation: navbar-resume-shimmer 900ms ease-out;
   }
   
   .resume-button:hover {
     background: #063f91;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(7, 80, 181, 0.3);
+  }
+
+  @keyframes navbar-signal-scan {
+    0%,
+    12% {
+      left: -20%;
+      opacity: 0;
+    }
+
+    28% {
+      opacity: 1;
+    }
+
+    65%,
+    100% {
+      left: 112%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes navbar-logo-shimmer {
+    0% {
+      left: -18%;
+      opacity: 0;
+    }
+
+    25% {
+      opacity: 0.9;
+    }
+
+    100% {
+      left: 110%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes navbar-resume-shimmer {
+    0% {
+      left: -60%;
+    }
+
+    100% {
+      left: 125%;
+    }
   }
   
   /* Hamburger: hidden on desktop */
@@ -324,6 +459,12 @@
   
   /* Accessibility */
   @media (prefers-reduced-motion: reduce) {
+    :host::before,
+    .navbar__brand::after,
+    .resume-button::before {
+      animation: none;
+    }
+
     .navbar__link,
     .navbar__link::after,
     .navbar__toggle span,
