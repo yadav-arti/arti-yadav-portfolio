@@ -168,20 +168,37 @@
   width: 100%;
   height: 100%;
   padding: 16px;
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 12px;
   color: inherit;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  background: linear-gradient(
+    145deg,
+    rgba(7, 80, 181, 0.22),
+    rgba(7, 80, 181, 0.34)
+  );
+  box-shadow:
+    0 14px 32px rgba(7, 80, 181, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(16px) saturate(1.2);
   text-align: left;
   transition:
+    background 220ms ease,
+    transform 220ms ease,
     box-shadow 180ms ease,
     border-color 180ms ease;
 }
 
 .standees-design__card:hover .standees-design__card-content {
-  border-color: rgba(30, 64, 175, 0.2);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+  background: linear-gradient(
+    145deg,
+    rgba(7, 80, 181, 0.26),
+    rgba(7, 80, 181, 0.38)
+  );
+  transform: translateY(-4px);
+  border-color: rgba(7, 80, 181, 0.3);
+  box-shadow:
+    0 18px 38px rgba(7, 80, 181, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .standees-design__standee-image {
@@ -269,21 +286,24 @@
 .standees-design__card-caption {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: center;
   gap: 8px;
   padding: 0 4px 2px;
-  font-family: var(--font-body, sans-serif);
-  font-size: 14px;
+  font-family: 'Spline Sans Mono', ui-monospace, monospace;
+  font-size: 15px;
   line-height: 1.5;
+  text-align: center;
 }
 
 .standees-design__card-caption h3 {
   min-width: 0;
   margin: 0;
   color: #111827;
-  font-family: var(--font-body, sans-serif);
+  font-family: 'Spline Sans Mono', ui-monospace, monospace;
   font-size: inherit;
-  font-weight: 400;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .standees-design__card-number,
@@ -471,6 +491,10 @@
   .standees-design.is-visible::before,
   .standees-design.is-visible::after {
     animation: none;
+  }
+
+  .standees-design__card:hover .standees-design__card-content {
+    transform: none;
   }
 
   .standees-design__card,

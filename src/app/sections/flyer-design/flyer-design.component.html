@@ -1,0 +1,39 @@
+<section
+  class="flyer-design"
+  [class.is-visible]="isVisible"
+  id="flyer-design"
+  aria-labelledby="flyer-design-title"
+>
+  <div class="flyer-design__container">
+    <header class="flyer-design__header">
+      <div>
+        <span class="flyer-design__eyebrow">Print &amp; Promotion</span>
+        <h2 id="flyer-design-title">Flyer</h2>
+      </div>
+      <p>
+        Promotional flyers created to turn bold messages and strong
+        product stories into instantly memorable print designs.
+      </p>
+    </header>
+
+    <div class="flyer-design__gallery" role="list" aria-label="Flyer designs">
+      @for (flyer of flyers; track flyer.src; let index = $index) {
+        <article
+          class="flyer-design__card"
+          [style.--flyer-delay]="index * 140 + 'ms'"
+          role="listitem"
+        >
+          <div class="flyer-design__image">
+            <img
+              appImageLoading
+              [src]="flyer.src"
+              [alt]="flyer.alt"
+              loading="lazy"
+            />
+          </div>
+          <h3>{{ flyer.label }}</h3>
+        </article>
+      }
+    </div>
+  </div>
+</section>

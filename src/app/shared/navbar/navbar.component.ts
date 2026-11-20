@@ -21,6 +21,7 @@ export class NavbarComponent {
     { label: 'Logo', href: '#logo-designs' },
     { label: 'Social Media', href: '#social-media-design' },
     { label: 'Print Design', href: '#print-design' },
+    { label: 'Flyer', href: '#flyer-design' },
     { label: 'Standees', href: '#standees-design' }
   ];
 

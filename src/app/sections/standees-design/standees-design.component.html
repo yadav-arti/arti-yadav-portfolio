@@ -1,46 +1,9 @@
 <section
   class="standees-design"
-  [class.is-visible]="postersVisible || rollupsVisible"
+  [class.is-visible]="rollupsVisible"
   id="standees-design"
 >
   <div class="standees-design__container">
-    <section class="standees-design__posters" aria-labelledby="standees-design-title">
-      <header class="standees-design__intro">
-        <div class="standees-design__intro-copy">
-          <span class="standees-design__eyebrow">Print &amp; Display</span>
-          <h2 id="standees-design-title">Standee Designs</h2>
-          <p class="standees-design__tagline">Big ideas, ready to stand tall.</p>
-        </div>
-
-        <p class="standees-design__description">
-          A collection of roll-up standees and display posters designed to make
-          brands and ideas impossible to miss, from the first glance to the last detail.
-        </p>
-      </header>
-
-      <div
-        class="standees-design__gallery standees-design__gallery--posters"
-        [class.is-visible]="postersVisible"
-        aria-label="Wall poster designs"
-        role="list"
-      >
-        @for (design of wallPosters; track design.src; let index = $index) {
-          <div
-            class="standees-design__poster-image"
-            [style.--poster-delay]="index * 110 + 'ms'"
-            role="listitem"
-          >
-            <img
-              appImageLoading
-              [src]="design.src"
-              [alt]="design.alt"
-              loading="lazy"
-            />
-          </div>
-        }
-      </div>
-    </section>
-
     <section class="standees-design__rollups" aria-labelledby="standees-rollups-title">
       <header class="standees-design__rollups-header">
         <div>
@@ -80,7 +43,6 @@
               </span>
               <div class="standees-design__card-caption">
                 <h3>{{ design.title }}</h3>
-                <span class="standees-design__card-number">{{ design.number }}</span>
               </div>
             </div>
           </article>

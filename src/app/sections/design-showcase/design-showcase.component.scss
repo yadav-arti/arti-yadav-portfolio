@@ -17,15 +17,9 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(
-      125deg,
-      #c7ddff 0%,
-      #e7e5ff 27%,
-      #c9f1ff 52%,
-      #f4e3ff 76%,
-      #c7ddff 100%
-    );
-    background-size: 300% 300%;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(255, 190, 106, 0.24), transparent 28%),
+      linear-gradient(135deg, #fffaf2 0%, #f7fbff 48%, #edf7f4 100%);
   }
 
   .design-showcase::before,
@@ -40,37 +34,51 @@
   .design-showcase::before {
     inset: -14%;
     background:
-      radial-gradient(ellipse at 18% 34%, rgba(0, 192, 255, 0.52), transparent 25%),
-      radial-gradient(ellipse at 78% 28%, rgba(164, 112, 255, 0.42), transparent 27%),
-      radial-gradient(ellipse at 65% 78%, rgba(40, 133, 255, 0.48), transparent 30%),
-      radial-gradient(ellipse at 15% 82%, rgba(48, 239, 218, 0.32), transparent 23%);
+      radial-gradient(ellipse at 18% 34%, rgba(0, 192, 255, 0.4), transparent 25%),
+      radial-gradient(ellipse at 78% 28%, rgba(164, 112, 255, 0.3), transparent 27%),
+      radial-gradient(ellipse at 65% 78%, rgba(40, 133, 255, 0.38), transparent 30%),
+      radial-gradient(ellipse at 15% 82%, rgba(48, 239, 218, 0.24), transparent 23%);
     filter: blur(18px);
     opacity: 0.9;
   }
 
   .design-showcase::after {
     background-image:
-      linear-gradient(rgba(7, 80, 181, 0.085) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(7, 80, 181, 0.085) 1px, transparent 1px),
+      linear-gradient(color-mix(in srgb, var(--color-blue, #0750b5) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-blue, #0750b5) 8%, transparent) 1px, transparent 1px),
       linear-gradient(110deg, transparent 38%, rgba(255, 255, 255, 0.32) 50%, transparent 62%);
     background-size: 56px 56px, 56px 56px, 220% 100%;
     background-repeat: repeat, repeat, no-repeat;
     mask-image: radial-gradient(ellipse at center, #000 10%, transparent 82%);
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   .design-showcase.is-visible {
-    animation: designBackgroundShift 14s ease-in-out infinite;
+    background-position: 10% 20%;
   }
 
   .design-showcase.is-visible::before {
-    animation: designAurora 8s ease-in-out infinite alternate;
+    animation: design-aurora 9s ease-in-out infinite alternate;
   }
 
   .design-showcase.is-visible::after {
     animation:
-      designGridDrift 24s linear infinite,
-      designLightSweep 9s ease-in-out infinite;
+      design-grid-drift 24s linear infinite,
+      design-light-sweep 9s ease-in-out infinite;
+  }
+
+  @keyframes design-aurora {
+    0% { opacity: 0.6; transform: translate3d(-4%, -2%, 0) scale(0.94); }
+    100% { opacity: 1; transform: translate3d(4%, 2%, 0) scale(1.06); }
+  }
+
+  @keyframes design-grid-drift {
+    to { transform: translate3d(-56px, -56px, 0); }
+  }
+
+  @keyframes design-light-sweep {
+    0%, 100% { background-position: 0 0, 0 0, -120% 0; }
+    50% { background-position: 0 0, 0 0, 120% 0; }
   }
   
   /* Oversized typography */
@@ -426,6 +434,31 @@
 .design-showcase:not(.is-visible) .design-title-wrap {
   animation: none;
   opacity: 1;
+}
+
+@keyframes design-cubic-grid {
+  0% {
+    background-position: 0 0, 36px 36px;
+  }
+  100% {
+    background-position: 72px 72px, 108px 108px;
+  }
+}
+
+@keyframes design-cubic-beam {
+  0%,
+  15% {
+    left: 15%;
+    opacity: 0.18;
+  }
+  55% {
+    left: 85%;
+    opacity: 0.78;
+  }
+  100% {
+    left: 15%;
+    opacity: 0.18;
+  }
 }
 
 /* Start decorative motion after visibility detection */

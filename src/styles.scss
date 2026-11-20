@@ -48,6 +48,74 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.futuristic-section {
+  background-color: #c7ddff;
+  background-image:
+    radial-gradient(ellipse at 18% 34%, rgba(0, 192, 255, 0.4), transparent 25%),
+    radial-gradient(ellipse at 78% 28%, rgba(164, 112, 255, 0.3), transparent 27%),
+    radial-gradient(ellipse at 65% 78%, rgba(40, 133, 255, 0.38), transparent 30%),
+    radial-gradient(ellipse at 15% 82%, rgba(48, 239, 218, 0.24), transparent 23%),
+    linear-gradient(color-mix(in srgb, var(--color-blue) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-blue) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(110deg, transparent 38%, rgba(255, 255, 255, 0.32) 50%, transparent 62%),
+    linear-gradient(125deg, #c7ddff 0%, #e7e5ff 27%, #c9f1ff 52%, #f4e3ff 76%, #c7ddff 100%);
+  background-size:
+    200% 200%,
+    200% 200%,
+    200% 200%,
+    200% 200%,
+    56px 56px,
+    56px 56px,
+    220% 100%,
+    300% 300%;
+  background-position:
+    0% 50%,
+    100% 25%,
+    65% 80%,
+    15% 82%,
+    0 0,
+    0 0,
+    -120% 0,
+    0% 50%;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat,
+    repeat,
+    no-repeat,
+    no-repeat;
+  animation: futuristic-section-background 18s ease-in-out infinite;
+}
+
+@keyframes futuristic-section-background {
+  0%,
+  100% {
+    background-position:
+      0% 50%,
+      100% 25%,
+      65% 80%,
+      15% 82%,
+      0 0,
+      0 0,
+      -120% 0,
+      0% 50%;
+  }
+
+  50% {
+    background-position:
+      100% 50%,
+      0% 75%,
+      100% 0%,
+      80% 15%,
+      56px 56px,
+      -56px -56px,
+      120% 0,
+      100% 50%;
+  }
+}
+
 button,
 input,
 textarea {
@@ -134,6 +202,10 @@ button {
     scroll-behavior: auto !important;
     animation-duration: 0.05ms !important;
     transition-duration: 0.05ms !important;
+  }
+
+  .futuristic-section {
+    animation: none;
   }
 
   .image-loading::after {

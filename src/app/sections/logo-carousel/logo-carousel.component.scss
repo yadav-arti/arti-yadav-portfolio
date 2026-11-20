@@ -22,14 +22,6 @@
   padding: clamp(32px, 5vh, 60px) clamp(24px, 4vw, 64px);
 
   color: #080808;
-
-  background: linear-gradient(
-    180deg,
-    #cfe2ff 0%,
-    #deebff 35%,
-    #eff5ff 72%,
-    #ffffff 100%
-  );
 }
 
 .logo-showcase__container {
@@ -251,13 +243,6 @@
   padding: clamp(24px, 3vh, 38px) clamp(24px, 3.6vw, 56px);
 
   color: #111111;
-
-  background: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #f7faff 48%,
-    #dceaff 100%
-  );
 }
 
 .brand-identity__container {
@@ -613,7 +598,6 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: #f5eee7;
 }
 
 .full-image-showcase__image {

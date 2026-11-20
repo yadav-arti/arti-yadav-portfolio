@@ -8,6 +8,7 @@ import { ToolsShowcaseComponent } from './sections/tools-showcase/tools-showcase
 import { LogoCarouselComponent } from './sections/logo-carousel/logo-carousel.component';
 import { SocialMediaDesignComponent } from './sections/social-media-design/social-media-design.component';
 import { PrintDesignComponent } from './sections/print-design/print-design.component';
+import { FlyerDesignComponent } from './sections/flyer-design/flyer-design.component';
 import { StandeesDesignComponent } from './sections/standees-design/standees-design.component';
 
 @Component({
@@ -22,6 +23,7 @@ import { StandeesDesignComponent } from './sections/standees-design/standees-des
     LogoCarouselComponent,
     SocialMediaDesignComponent,
     PrintDesignComponent,
+    FlyerDesignComponent,
     StandeesDesignComponent,
     FooterComponent
   ],
