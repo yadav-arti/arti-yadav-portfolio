@@ -31,7 +31,7 @@
   
     width: 100%;
     max-width: none;
-    min-height: 76px;
+    min-height: 64px;
   
     margin: 0;
     padding-inline: clamp(24px, 4vw, 64px);
@@ -47,8 +47,8 @@
   
   .navbar__logo {
     display: block;
-    width: 100px;
-    height: 76px;
+    width: 84px;
+    height: 64px;
     object-fit: contain;
     object-position: center;
   }
@@ -58,18 +58,18 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: clamp(20px, 3vw, 42px);
+    gap: clamp(14px, 2.2vw, 30px);
   
     margin-left: auto;
   }
   
   .navbar__link {
     position: relative;
-    padding: 10px 0;
+    padding: 8px 0;
   
     color: var(--color-text, #111111);
     font-family: var(--font-body, sans-serif);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     text-decoration: none;
     white-space: nowrap;
@@ -111,8 +111,8 @@
     align-items: center;
     justify-content: center;
   
-    min-height: 42px;
-    padding: 0 22px;
+    min-height: 36px;
+    padding: 0 18px;
   
     color: #ffffff;
     background: var(--color-blue, #0750b5);
@@ -121,7 +121,7 @@
     box-shadow: 0 5px 16px rgba(7, 80, 181, 0.25);
   
     font-family: var(--font-body, sans-serif);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;

@@ -1,4 +1,3 @@
-
 <section class="hero" id="home">
   <div class="hero__inner">
 
@@ -18,16 +17,13 @@
 
         <div class="hero__portfolio">
           <span class="hero__word hero__word--top">
-            P<span class="hero__blue-o">O</span>RTF<span class="hero__blue-o">O</span>LI<span class="hero__blue-o">O</span>
+            P<span class="hero__blue-o">O</span>RTF<span class="hero__blue-o">O</span>LI<span
+              class="hero__blue-o">O</span>
           </span>
-
         </div>
 
         <h1 class="hero__profession" aria-label="Creative Designer">
-          <span class="typing-text">{{ displayedText }}</span><span
-            class="typing-cursor"
-            aria-hidden="true"
-          ></span>
+          <span class="typing-text">{{ displayedText }}</span><span class="typing-cursor" aria-hidden="true"></span>
         </h1>
 
         <p class="hero__tagline">
@@ -36,15 +32,8 @@
       </div>
 
       <div class="hero__portrait" appImageGlow="#008cff">
-        <img
-          appImageLoading
-          [src]="portrait"
-          [alt]="name + ', creative designer'"
-          width="928"
-          height="1152"
-          loading="eager"
-          fetchpriority="high"
-        />
+        <img appImageLoading [src]="portrait" [alt]="name + ', creative designer'" width="928" height="1152"
+          loading="eager" fetchpriority="high" />
       </div>
     </div>
 

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --navbar-height: 76px;
+  --navbar-height: 64px;
 
   --color-blue: #0750b5;
   --color-black: #111111;
@@ -26,11 +26,11 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: var(--navbar-height);
   overflow-x: clip;
 }
 
-html::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track-piece:start {
   margin-top: var(--navbar-height);
 }
 
